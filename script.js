@@ -248,9 +248,12 @@ function launchSheepFromButton(button) {
     const spreadY = (Math.random() - 0.5) * 70;
     const startX = centerX - 40 + Math.random() * 30;
     const startY = centerY - 28 + spreadY;
-    const duration = 720 + Math.random() * 480;
-    const size = 54 + Math.random() * 46;
-    const jump = 45 + Math.random() * 90;
+    // Mucho más pausadas: cada oveja tarda entre 2.6 y 3.3 segundos.
+    const duration = 2600 + Math.random() * 700;
+    // Salen una detrás de otra para que se distinga la estampida.
+    const delay = i * 115 + Math.random() * 80;
+    const size = 58 + Math.random() * 42;
+    const jump = 28 + Math.random() * 38;
     const endY = (Math.random() - 0.5) * 80;
     const rotStart = `${-10 + Math.random() * 20}deg`;
     const rotEnd = `${-12 + Math.random() * 24}deg`;
@@ -258,6 +261,7 @@ function launchSheepFromButton(button) {
     sheep.style.setProperty("--start-x", `${startX}px`);
     sheep.style.setProperty("--start-y", `${startY}px`);
     sheep.style.setProperty("--sheep-duration", `${duration}ms`);
+    sheep.style.setProperty("--sheep-delay", `${delay}ms`);
     sheep.style.setProperty("--sheep-size", `${size}px`);
     sheep.style.setProperty("--jump", `${jump}px`);
     sheep.style.setProperty("--end-y", `${endY}px`);
@@ -283,16 +287,16 @@ function initConsultButtons() {
           alert(
             "La animación ya funciona. Falta configurar el número de WhatsApp en SITE_CONFIG dentro de script.js."
           );
-        }, 650);
+        }, 3300);
         return;
       }
 
       const url = buildWhatsappUrl(product);
 
-      // Dejamos ver la estampida antes de ir a WhatsApp.
+      // Dejamos que la animación lenta se vea antes de ir a WhatsApp.
       window.setTimeout(() => {
         window.location.href = url;
-      }, 900);
+      }, 3300);
     });
   });
 }

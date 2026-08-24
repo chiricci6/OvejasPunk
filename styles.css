@@ -721,29 +721,59 @@ img {
   height: auto;
   will-change: transform, opacity;
   filter: drop-shadow(3px 3px 0 rgba(17,17,17,.9));
-  animation: sheepRun var(--sheep-duration, 900ms) cubic-bezier(.18,.74,.35,1) forwards;
+  animation: sheepRun var(--sheep-duration, 2800ms) cubic-bezier(.25,.60,.35,1) forwards;
+  animation-delay: var(--sheep-delay, 0ms);
 }
 
+/*
+   Recorrido deliberadamente lento y con pequeños saltitos.
+   La idea es que parezcan ovejas caminando/trotando, no proyectiles.
+*/
 @keyframes sheepRun {
   0% {
     opacity: 0;
-    transform: translate(var(--start-x), var(--start-y)) rotate(var(--rot-start)) scale(.6);
+    transform: translate(var(--start-x), var(--start-y)) rotate(var(--rot-start)) scale(.64);
   }
-  12% {
+  8% {
     opacity: 1;
   }
-  45% {
+  22% {
     transform: translate(
-      calc(var(--start-x) + 30vw),
+      calc(var(--start-x) + 16vw),
       calc(var(--start-y) - var(--jump))
-    ) rotate(3deg) scale(1);
+    ) rotate(-3deg) scale(.82);
+  }
+  38% {
+    transform: translate(
+      calc(var(--start-x) + 31vw),
+      calc(var(--start-y) - 4px)
+    ) rotate(2deg) scale(.90);
+  }
+  54% {
+    transform: translate(
+      calc(var(--start-x) + 47vw),
+      calc(var(--start-y) - calc(var(--jump) * .72))
+    ) rotate(-2deg) scale(.96);
+  }
+  70% {
+    transform: translate(
+      calc(var(--start-x) + 62vw),
+      calc(var(--start-y) + 2px)
+    ) rotate(2deg) scale(1);
+  }
+  86% {
+    opacity: 1;
+    transform: translate(
+      calc(var(--start-x) + 76vw),
+      calc(var(--start-y) - calc(var(--jump) * .45))
+    ) rotate(-1deg) scale(.96);
   }
   100% {
     opacity: 0;
     transform: translate(
-      calc(var(--start-x) + 92vw),
+      calc(var(--start-x) + 88vw),
       calc(var(--start-y) + var(--end-y))
-    ) rotate(var(--rot-end)) scale(.9);
+    ) rotate(var(--rot-end)) scale(.90);
   }
 }
 
