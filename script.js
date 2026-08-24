@@ -1,107 +1,94 @@
 /* =========================================================
-   OVEJAS PUNK - CONFIGURACIÓN
-   CAMBIÁ SOLO ESTE BLOQUE cuando tengas tus datos definitivos.
+   OVEJAS PUNK — CONFIGURACIÓN
+   Cambiá este bloque y no hace falta tocar el resto.
    ========================================================= */
 
 const SITE_CONFIG = {
-  // WhatsApp: solo números, sin +, espacios ni guiones.
-  // Ejemplo Argentina: 5491122334455
+  /*
+    WHATSAPP
+    Usar SOLO números: sin +, espacios ni guiones.
+
+    Ejemplo Argentina:
+    5491122334455
+  */
   whatsappNumber: "54911XXXXXXXX",
 
-  // Texto visible en la tarjeta de contacto.
+  // Es únicamente el texto visible en la web.
   whatsappLabel: "+54 9 11 XXXX XXXX",
-
-  // Perfil completo de Instagram.
-  instagramUrl: "https://www.instagram.com/ovejaspunk/",
-
-  // Correo.
-  email: "hola@ovejaspunk.com",
 
   /*
     GOOGLE FORMS
-    En Google Forms:
-    1) Abrí tu formulario.
-    2) Tocá "Enviar".
-    3) Elegí el ícono "<>" (Insertar HTML).
-    4) Del código que te da Google, copiá SOLAMENTE el valor de src="...".
-    5) Pegalo acá abajo.
+    En tu formulario:
+    Enviar > <> Insertar HTML
 
-    Ejemplo:
-    googleFormsUrl: "https://docs.google.com/forms/d/e/XXXXXXXX/viewform?embedded=true"
+    Google te da algo como:
+    <iframe src="https://docs.google.com/forms/d/e/XXXXX/viewform?embedded=true">
+
+    Copiá solamente el contenido de src="..." y pegalo acá.
   */
   googleFormsUrl: "REEMPLAZAR_CON_URL_EMBED_DE_GOOGLE_FORMS"
 };
 
 
 /* =========================================================
-   LINKS DE CONTACTO
+   WHATSAPP
    ========================================================= */
 
-function sanitizeWhatsappNumber(value) {
+function cleanWhatsappNumber(value) {
   return String(value || "").replace(/\D/g, "");
 }
 
-function whatsappIsConfigured() {
-  const clean = sanitizeWhatsappNumber(SITE_CONFIG.whatsappNumber);
-  return clean.length >= 8 && !String(SITE_CONFIG.whatsappNumber).includes("X");
+function isWhatsappConfigured() {
+  const raw = String(SITE_CONFIG.whatsappNumber || "");
+  const clean = cleanWhatsappNumber(raw);
+
+  return clean.length >= 8 && !raw.includes("X");
 }
 
-function buildWhatsappUrl(productName = "") {
-  if (!whatsappIsConfigured()) {
-    return "#";
+function getWhatsappUrl(message) {
+  if (!isWhatsappConfigured()) {
+    return null;
   }
 
-  const clean = sanitizeWhatsappNumber(SITE_CONFIG.whatsappNumber);
+  const number = cleanWhatsappNumber(SITE_CONFIG.whatsappNumber);
 
-  const message = productName
-    ? `Hola Ovejas Punk, quiero consultar por: ${productName}.`
-    : "Hola Ovejas Punk, quiero hacer una consulta.";
-
-  return `https://wa.me/${clean}?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 }
 
-function configureContactLinks() {
-  const whatsapp = document.getElementById("contactWhatsapp");
-  const instagram = document.getElementById("contactInstagram");
-  const email = document.getElementById("contactEmail");
-  const whatsappLabel = document.getElementById("whatsappLabel");
+function openWhatsapp(message) {
+  const url = getWhatsappUrl(message);
 
-  whatsappLabel.textContent = SITE_CONFIG.whatsappLabel;
-
-  if (whatsappIsConfigured()) {
-    whatsapp.href = buildWhatsappUrl();
-  } else {
-    whatsapp.href = "#";
-    whatsapp.addEventListener("click", (event) => {
-      event.preventDefault();
-      alert("Todavía falta configurar el número de WhatsApp en SITE_CONFIG dentro de script.js.");
-    });
+  if (!url) {
+    alert(
+      "WhatsApp está preparado, pero todavía falta cargar el número real. " +
+      "Abrí script.js y reemplazá whatsappNumber en SITE_CONFIG."
+    );
+    return;
   }
 
-  instagram.href = SITE_CONFIG.instagramUrl;
-  email.href = `mailto:${SITE_CONFIG.email}`;
-
-  const emailValue = email.querySelector(".contact-link-value");
-  if (emailValue) {
-    emailValue.textContent = SITE_CONFIG.email;
-  }
+  window.location.href = url;
 }
 
 
 /* =========================================================
-   GOOGLE FORMS
+   GOOGLE FORM
    ========================================================= */
 
-function configureGoogleForm() {
-  const frame = document.getElementById("googleFormFrame");
-  const placeholder = document.getElementById("formsPlaceholder");
+function setupGoogleForm() {
+  const frame = document.getElementById("googleForm");
+  const placeholder = document.getElementById("googlePlaceholder");
+
+  if (!frame || !placeholder) {
+    return;
+  }
+
   const url = String(SITE_CONFIG.googleFormsUrl || "").trim();
 
-  const configured =
+  const valid =
     url.startsWith("https://docs.google.com/forms/") &&
     !url.includes("REEMPLAZAR");
 
-  if (!configured) {
+  if (!valid) {
     frame.hidden = true;
     placeholder.hidden = false;
     return;
@@ -114,43 +101,81 @@ function configureGoogleForm() {
 
 
 /* =========================================================
-   LOGO GIRATORIO
-   - gira siempre lentamente
-   - al pasar el mouse acelera
-   - mover rápido el mouse le da "impulso"
-   - al salir desacelera de manera progresiva
+   INTERACTIVE WHITE SHEEP
+   - slow rotation at rest
+   - faster on hover
+   - mouse movement gives impulse
+   - tap gives impulse
+   - drag spins it directly
    ========================================================= */
 
-function initLogoSpin() {
-  const wrap = document.getElementById("rotatingLogoWrap");
-  const logo = document.getElementById("rotatingLogo");
+function setupInteractiveSheep() {
+  const holder = document.getElementById("rotatingSheep");
+  const image = document.getElementById("rotatingSheepImage");
 
-  if (!wrap || !logo) return;
+  if (!holder || !image) {
+    return;
+  }
 
   let angle = 0;
-  let speed = 15;          // grados por segundo
-  let targetSpeed = 15;
-  let lastTime = performance.now();
+  let speed = 8;
+  let targetSpeed = 8;
+  let lastFrame = performance.now();
+
+  let pointerDown = false;
   let lastPointerX = null;
   let lastPointerY = null;
   let lastPointerTime = null;
 
-  const BASE_SPEED = 15;
-  const HOVER_SPEED = 150;
-  const MAX_SPEED = 520;
+  const BASE_SPEED = 8;
+  const HOVER_SPEED = 72;
+  const MAX_SPEED = 320;
 
-  wrap.addEventListener("pointerenter", () => {
-    targetSpeed = HOVER_SPEED;
+  holder.addEventListener("pointerenter", () => {
+    if (!pointerDown) {
+      targetSpeed = HOVER_SPEED;
+    }
   });
 
-  wrap.addEventListener("pointerleave", () => {
-    targetSpeed = BASE_SPEED;
+  holder.addEventListener("pointerleave", () => {
+    if (!pointerDown) {
+      targetSpeed = BASE_SPEED;
+    }
+
     lastPointerX = null;
     lastPointerY = null;
     lastPointerTime = null;
   });
 
-  wrap.addEventListener("pointermove", (event) => {
+  holder.addEventListener("pointerdown", (event) => {
+    pointerDown = true;
+    holder.setPointerCapture?.(event.pointerId);
+
+    lastPointerX = event.clientX;
+    lastPointerY = event.clientY;
+    lastPointerTime = performance.now();
+
+    targetSpeed = Math.max(targetSpeed, 130);
+  });
+
+  holder.addEventListener("pointerup", (event) => {
+    pointerDown = false;
+    holder.releasePointerCapture?.(event.pointerId);
+
+    // A tap gives it a visible push.
+    targetSpeed = Math.min(MAX_SPEED, Math.max(targetSpeed, 165));
+
+    lastPointerX = null;
+    lastPointerY = null;
+    lastPointerTime = null;
+  });
+
+  holder.addEventListener("pointercancel", () => {
+    pointerDown = false;
+    targetSpeed = BASE_SPEED;
+  });
+
+  holder.addEventListener("pointermove", (event) => {
     const now = performance.now();
 
     if (
@@ -161,13 +186,18 @@ function initLogoSpin() {
       const dx = event.clientX - lastPointerX;
       const dy = event.clientY - lastPointerY;
       const distance = Math.hypot(dx, dy);
-      const elapsed = Math.max(8, now - lastPointerTime);
+      const elapsed = Math.max(12, now - lastPointerTime);
 
-      // velocidad del puntero como impulso extra
-      const pointerVelocity = (distance / elapsed) * 1000;
-      const impulse = Math.min(300, pointerVelocity * 0.17);
+      const velocity = distance / elapsed * 1000;
 
-      targetSpeed = Math.min(MAX_SPEED, HOVER_SPEED + impulse);
+      if (pointerDown) {
+        // While dragging, horizontal movement rotates it directly.
+        angle += dx * .72;
+        targetSpeed = Math.min(MAX_SPEED, 65 + velocity * .16);
+      } else {
+        // Hover movement gives a softer impulse.
+        targetSpeed = Math.min(MAX_SPEED, HOVER_SPEED + velocity * .095);
+      }
     }
 
     lastPointerX = event.clientX;
@@ -175,21 +205,31 @@ function initLogoSpin() {
     lastPointerTime = now;
   });
 
+  holder.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      targetSpeed = Math.min(MAX_SPEED, targetSpeed + 110);
+    }
+  });
+
   function animate(now) {
-    const deltaSeconds = Math.min(0.05, (now - lastTime) / 1000);
-    lastTime = now;
+    const delta = Math.min(.05, (now - lastFrame) / 1000);
+    lastFrame = now;
 
-    // suavizado de aceleración/desaceleración
-    const easing = 1 - Math.pow(0.002, deltaSeconds);
-    speed += (targetSpeed - speed) * easing;
+    speed += (targetSpeed - speed) * Math.min(1, delta * 3.1);
 
-    // si dejamos de mover el mouse, vuelve gradualmente a velocidad hover
-    if (targetSpeed > HOVER_SPEED) {
-      targetSpeed += (HOVER_SPEED - targetSpeed) * Math.min(1, deltaSeconds * 2.8);
+    const restingTarget =
+      holder.matches(":hover") ? HOVER_SPEED : BASE_SPEED;
+
+    if (!pointerDown) {
+      targetSpeed +=
+        (restingTarget - targetSpeed) *
+        Math.min(1, delta * 1.25);
     }
 
-    angle = (angle + speed * deltaSeconds) % 360;
-    logo.style.transform = `rotate(${angle}deg)`;
+    angle = (angle + speed * delta) % 360;
+
+    image.style.transform = `rotate(${angle}deg)`;
 
     requestAnimationFrame(animate);
   }
@@ -199,118 +239,185 @@ function initLogoSpin() {
 
 
 /* =========================================================
-   OVEJAS QUE SALEN DEL BOTÓN
+   SLOW SHEEP PARADE
    ========================================================= */
 
-function makeSheepSvg() {
-  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  svg.setAttribute("viewBox", "0 0 120 82");
-  svg.setAttribute("class", "running-sheep");
-
-  svg.innerHTML = `
-    <g stroke="#111111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M31 55 L25 74" fill="none"/>
-      <path d="M54 56 L49 75" fill="none"/>
-      <path d="M76 55 L82 74" fill="none"/>
-      <path d="M90 52 L99 70" fill="none"/>
-
-      <g fill="#f2efe7">
-        <circle cx="36" cy="42" r="20"/>
-        <circle cx="54" cy="34" r="22"/>
-        <circle cx="73" cy="39" r="22"/>
-        <circle cx="58" cy="49" r="24"/>
-      </g>
-
-      <path d="M89 32 C105 28 112 36 108 48 C105 58 93 61 83 53 C78 49 80 37 89 32 Z" fill="#111111"/>
-      <circle cx="101" cy="39" r="2.8" fill="#f2efe7" stroke="none"/>
-      <path d="M93 28 L91 17 L101 27 Z" fill="#111111"/>
-      <path d="M106 30 L113 21 L111 34 Z" fill="#111111"/>
-
-      <path d="M20 38 C8 32 7 21 15 17" fill="none"/>
-    </g>
-  `;
-
-  return svg;
-}
-
-function launchSheepFromButton(button) {
+function launchSheepParade(button) {
   const layer = document.getElementById("sheepLayer");
+
+  if (!layer || !button) {
+    return;
+  }
+
   const rect = button.getBoundingClientRect();
 
-  const centerX = rect.left + rect.width * 0.62;
-  const centerY = rect.top + rect.height * 0.35;
+  const startX = rect.left + rect.width * .55;
+  const startY = rect.top + rect.height * .25;
 
-  const count = 7;
+  // They are deliberately staggered and slow enough to be noticed.
+  const count = 6;
 
-  for (let i = 0; i < count; i++) {
-    const sheep = makeSheepSvg();
+  for (let index = 0; index < count; index++) {
+    const sheep = document.createElement("img");
 
-    const spreadY = (Math.random() - 0.5) * 70;
-    const startX = centerX - 40 + Math.random() * 30;
-    const startY = centerY - 28 + spreadY;
-    // Mucho más pausadas: cada oveja tarda entre 2.6 y 3.3 segundos.
-    const duration = 2600 + Math.random() * 700;
-    // Salen una detrás de otra para que se distinga la estampida.
-    const delay = i * 115 + Math.random() * 80;
-    const size = 58 + Math.random() * 42;
-    const jump = 28 + Math.random() * 38;
-    const endY = (Math.random() - 0.5) * 80;
-    const rotStart = `${-10 + Math.random() * 20}deg`;
-    const rotEnd = `${-12 + Math.random() * 24}deg`;
+    sheep.src = "assets/cordero-mic-w.svg";
+    sheep.alt = "";
+    sheep.className = "walking-sheep";
 
-    sheep.style.setProperty("--start-x", `${startX}px`);
-    sheep.style.setProperty("--start-y", `${startY}px`);
-    sheep.style.setProperty("--sheep-duration", `${duration}ms`);
-    sheep.style.setProperty("--sheep-delay", `${delay}ms`);
+    const size = 58 + Math.random() * 30;
+    const x = startX - 15 + Math.random() * 22;
+    const y = startY - 22 + (Math.random() - .5) * 32;
+
+    const duration = 3900 + Math.random() * 900;
+    const delay = index * 235 + Math.random() * 65;
+
     sheep.style.setProperty("--sheep-size", `${size}px`);
-    sheep.style.setProperty("--jump", `${jump}px`);
-    sheep.style.setProperty("--end-y", `${endY}px`);
-    sheep.style.setProperty("--rot-start", rotStart);
-    sheep.style.setProperty("--rot-end", rotEnd);
+    sheep.style.setProperty("--start-x", `${x}px`);
+    sheep.style.setProperty("--start-y", `${y}px`);
+    sheep.style.setProperty("--duration", `${duration}ms`);
+    sheep.style.setProperty("--delay", `${delay}ms`);
 
-    sheep.addEventListener("animationend", () => sheep.remove());
+    sheep.addEventListener("animationend", () => {
+      sheep.remove();
+    });
+
     layer.appendChild(sheep);
   }
 }
 
-function initConsultButtons() {
-  const buttons = document.querySelectorAll(".consult-btn");
 
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const product = button.dataset.product || "un producto";
+/* =========================================================
+   WHATSAPP BUTTONS
+   ========================================================= */
 
-      launchSheepFromButton(button);
+function setupWhatsappTriggers() {
+  const triggers = document.querySelectorAll(".wa-trigger");
 
-      if (!whatsappIsConfigured()) {
+  triggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const message =
+        trigger.dataset.message ||
+        "Hola Ovejas Punk, quiero hacer una consulta.";
+
+      if (trigger.classList.contains("sheep-trigger")) {
+        launchSheepParade(trigger);
+
+        // We deliberately wait so the sheep animation is visible.
         window.setTimeout(() => {
-          alert(
-            "La animación ya funciona. Falta configurar el número de WhatsApp en SITE_CONFIG dentro de script.js."
-          );
-        }, 3300);
+          openWhatsapp(message);
+        }, 3100);
+
         return;
       }
 
-      const url = buildWhatsappUrl(product);
+      openWhatsapp(message);
+    });
+  });
 
-      // Dejamos que la animación lenta se vea antes de ir a WhatsApp.
-      window.setTimeout(() => {
-        window.location.href = url;
-      }, 3300);
+  const visibleNumber = document.getElementById("whatsappVisible");
+
+  if (visibleNumber) {
+    visibleNumber.textContent = SITE_CONFIG.whatsappLabel;
+  }
+}
+
+
+/* =========================================================
+   PRODUCT CARD TOUCH INTERACTION
+   ========================================================= */
+
+function setupProductCards() {
+  const cards = document.querySelectorAll(".product-card");
+
+  cards.forEach((card) => {
+    card.addEventListener("pointerdown", () => {
+      card.style.transform = "translateY(-5px) rotate(-.5deg) scale(.99)";
+    });
+
+    card.addEventListener("pointerup", () => {
+      card.style.transform = "";
+    });
+
+    card.addEventListener("pointercancel", () => {
+      card.style.transform = "";
     });
   });
 }
 
 
 /* =========================================================
-   INICIO
+   MOBILE MENU
+   ========================================================= */
+
+function setupMenu() {
+  const button = document.querySelector(".menu-button");
+  const nav = document.querySelector(".main-nav");
+
+  if (!button || !nav) {
+    return;
+  }
+
+  button.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+
+    button.setAttribute("aria-expanded", String(open));
+    document.body.classList.toggle("menu-open", open);
+  });
+
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      document.body.classList.remove("menu-open");
+      button.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+function setupReveal() {
+  const elements = document.querySelectorAll(".reveal");
+
+  if (!("IntersectionObserver" in window)) {
+    elements.forEach((element) => {
+      element.classList.add("visible");
+    });
+
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: .11
+    }
+  );
+
+  elements.forEach((element) => {
+    observer.observe(element);
+  });
+}
+
+
+/* =========================================================
+   START
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  configureContactLinks();
-  configureGoogleForm();
-  initLogoSpin();
-  initConsultButtons();
+  setupGoogleForm();
+  setupInteractiveSheep();
+  setupWhatsappTriggers();
+  setupProductCards();
+  setupMenu();
+  setupReveal();
 });

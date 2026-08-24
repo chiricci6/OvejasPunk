@@ -1,4 +1,12 @@
-OVEJAS PUNK — WEB ESTÁTICA
+OVEJAS PUNK — WEB FINAL
+
+Esta versión recrea la estética del diseño aprobado:
+- Fondo negro / carbón.
+- Crema.
+- Rosa fuerte.
+- Amarillo ácido.
+- Collage, cintas, papeles, ilustraciones y textura.
+- OVEJA BLANCA como identidad principal en header y hero.
 
 ARCHIVOS
 - index.html
@@ -6,49 +14,108 @@ ARCHIVOS
 - script.js
 - assets/
 
-QUÉ CAMBIAR PRIMERO
-1) LOGO
-   Reemplazá:
-   assets/logo-ovejas-punk.svg
-   por tu logo definitivo.
+============================================================
+1. CONFIGURAR WHATSAPP
+============================================================
 
-   Si el archivo se llama, por ejemplo:
-   logo.png
+Abrí script.js.
 
-   copiá logo.png dentro de /assets/ y en index.html buscá:
-   src="assets/logo-ovejas-punk.svg"
+Arriba de todo:
 
-   y cambialo por:
-   src="assets/logo.png"
+const SITE_CONFIG = {
+    whatsappNumber: "54911XXXXXXXX",
+    whatsappLabel: "+54 9 11 XXXX XXXX",
+    googleFormsUrl: "REEMPLAZAR_CON_URL_EMBED_DE_GOOGLE_FORMS"
+};
 
-2) WHATSAPP / INSTAGRAM / MAIL
-   Abrí script.js y editá el bloque SITE_CONFIG del principio.
+Cuando tengas el número real, por ejemplo:
 
-3) GOOGLE FORMS
-   Abrí Google Forms > Enviar > ícono "<>".
-   Del iframe que te da Google copiá solamente el valor de src="...".
-   Pegalo en script.js en:
-   googleFormsUrl: "..."
+whatsappNumber: "5491122334455"
 
-4) PRODUCTOS
-   En index.html buscá:
-   <article class="product-card">
-   Cada bloque completo representa un producto.
+IMPORTANTE:
+- sin +
+- sin espacios
+- sin guiones
 
-   Para cambiar el mensaje que llega a WhatsApp, cambiá:
-   data-product="Nombre del producto"
+whatsappLabel es solamente el texto que se muestra.
 
-5) FOTOS
-   Las imágenes provisorias están en /assets/.
-   Podés reemplazarlas por JPG, PNG, WEBP o SVG.
-   Si cambiás el nombre del archivo, actualizá también el src en index.html.
+Todos los botones de consulta/contacto están centralizados en
+esa única configuración.
 
-FUNCIONES YA INCLUIDAS
-- Web responsive.
-- Logo giratorio permanente.
-- Aceleración del logo al pasar y mover el mouse.
-- Botones de consulta por WhatsApp.
-- Animación de ovejas al tocar "Consultar".
-- Contactos clickeables.
-- Espacio preparado para Google Forms.
-- Navegación por secciones.
+Los links de NOSOTROS / PRODUCTOS / CONTACTO del menú son
+navegación interna de la misma página.
+
+============================================================
+2. GOOGLE FORMS
+============================================================
+
+En Google Forms:
+1. Abrí tu formulario.
+2. Elegí "Enviar".
+3. Elegí el icono "<>".
+4. Google mostrará un iframe.
+5. Copiá solamente el contenido de src="...".
+
+Ejemplo:
+
+https://docs.google.com/forms/d/e/XXXXXXXX/viewform?embedded=true
+
+Pegalo en script.js:
+
+googleFormsUrl:
+"https://docs.google.com/forms/d/e/XXXXXXXX/viewform?embedded=true"
+
+No hace falta modificar index.html.
+
+============================================================
+3. INTERACCIONES
+============================================================
+
+La oveja blanca grande del inicio:
+- gira lentamente sola;
+- acelera al pasar el mouse;
+- mover rápido el mouse le da impulso;
+- se puede tocar;
+- se puede arrastrar;
+- Enter o espacio también le da impulso.
+
+Tarjetas:
+- reaccionan al hover;
+- reaccionan al toque;
+- las imágenes se mueven suavemente.
+
+Botones CONSULTAR:
+- generan una estampida lenta de ovejas;
+- esperan para que la animación se vea;
+- luego abren WhatsApp.
+
+============================================================
+4. PRODUCTOS
+============================================================
+
+Los productos se editan en index.html.
+
+Cada tarjeta es:
+
+<article class="product-card">
+
+El mensaje de WhatsApp está en:
+
+data-message="..."
+
+Ejemplo:
+
+data-message="Hola Ovejas Punk, quiero consultar por Cámaras."
+
+============================================================
+5. RESPONSIVE
+============================================================
+
+Incluye:
+- escritorio;
+- tablet;
+- celular;
+- menú móvil;
+- tarjetas que pasan de 5 a 3, 2 y 1 columnas;
+- hero reacomodado;
+- Google Forms responsive.

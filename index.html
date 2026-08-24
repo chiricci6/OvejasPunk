@@ -3,278 +3,492 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#111111">
-  <meta name="description" content="Ovejas Punk — alquiler de equipamiento y materiales para producciones audiovisuales.">
-  <title>Ovejas Punk | Alquiler audiovisual</title>
+  <meta name="theme-color" content="#090d0e">
+  <meta name="description" content="Ovejas Punk — alquiler de equipos y materiales para producciones audiovisuales. Solo consultas.">
+  <title>Ovejas Punk | Alquiler Audiovisual</title>
+
   <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <div class="noise" aria-hidden="true"></div>
 
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ======================================================
+       HEADER
+       ====================================================== -->
   <header class="site-header">
-    <a class="brand-mini" href="#inicio" aria-label="Ir al inicio">
-      <span class="brand-dot"></span>
-      OVEJAS PUNK
+    <a class="brand-link" href="#inicio" aria-label="Ovejas Punk - Inicio">
+      <img src="assets/ovejas-w.svg" alt="Ovejas Punk">
     </a>
+
+    <button class="menu-button" type="button" aria-label="Abrir menú" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
 
     <nav class="main-nav" aria-label="Navegación principal">
       <a href="#nosotros">Nosotros</a>
       <a href="#productos">Productos</a>
       <a href="#contacto">Contacto</a>
+      <button class="nav-whatsapp wa-trigger" type="button" data-message="Hola Ovejas Punk, quiero hacer una consulta." aria-label="Consultar por WhatsApp">
+        ϟ
+      </button>
     </nav>
   </header>
 
   <main>
+
+    <!-- ====================================================
+         HERO
+         ==================================================== -->
     <section class="hero" id="inicio">
-      <div class="hero-copy">
-        <p class="eyebrow">ALQUILER · PRODUCCIÓN · RODAJE</p>
-        <h1>OVEJAS<br><span>PUNK</span></h1>
-        <p class="hero-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non
-          justo vitae erat feugiat posuere. Sed vitae sem eget mi sodales.
+
+      <div class="hero-copy reveal">
+        <p class="eyebrow">ALQUILER DE EQUIPOS / SOLO CONSULTA</p>
+
+        <h1>
+          <span>OVEJAS</span>
+          <span>PUNK</span>
+        </h1>
+
+        <div class="pink-brush" aria-hidden="true"></div>
+
+        <p class="hero-description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Equipos y materiales para grabaciones, películas y producciones
+          audiovisuales. <mark>Solo consulta.</mark>
         </p>
 
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#productos">VER EQUIPOS</a>
-          <a class="btn btn-ghost" href="#contacto">HABLAR CON NOSOTROS</a>
-        </div>
-      </div>
+        <div class="hero-buttons">
+          <a class="button button-pink" href="#productos">
+            VER EQUIPOS <span>→</span>
+          </a>
 
-      <div class="hero-logo-zone">
-        <div class="orbit orbit-one" aria-hidden="true"></div>
-        <div class="orbit orbit-two" aria-hidden="true"></div>
-
-        <div class="rotating-logo-wrap" id="rotatingLogoWrap">
-          <!--
-            REEMPLAZO DEL LOGO:
-            1. Copiá tu archivo dentro de /assets/
-            2. Si se llama "logo.png", cambiá el src de abajo por:
-               assets/logo.png
-          -->
-          <img
-            id="rotatingLogo"
-            class="rotating-logo"
-            src="assets/logo-ovejas-punk.svg"
-            alt="Logo de Ovejas Punk"
+          <button
+            class="button button-paper wa-trigger"
+            type="button"
+            data-message="Hola Ovejas Punk, quiero consultar por alquiler de equipos."
           >
+            CONSULTAR
+            <img src="assets/iso-b.svg" alt="">
+          </button>
         </div>
 
-        <p class="logo-hint">MOVÉ EL MOUSE ACÁ → ACELERA</p>
+        <div class="handwritten">
+          <span>PRODUCIR ES CAOS.</span>
+          <span>EQUIPATE BIEN.</span>
+        </div>
+      </div>
+
+      <div class="hero-art reveal" id="interactiveHero">
+        <span class="hero-tape hero-tape-a"></span>
+        <span class="hero-tape hero-tape-b"></span>
+        <span class="hero-lightning">ϟ</span>
+
+        <div class="scratched-circle circle-a"></div>
+        <div class="scratched-circle circle-b"></div>
+
+        <div
+          class="rotating-sheep"
+          id="rotatingSheep"
+          role="img"
+          aria-label="Oveja blanca Ovejas Punk interactiva"
+          tabindex="0"
+        >
+          <img id="rotatingSheepImage" src="assets/iso-w.svg" alt="">
+        </div>
+
+        <img
+          class="boom-sheep"
+          src="assets/cordero-mic-w.svg"
+          alt="Oveja Ovejas Punk con micrófono"
+        >
+
+        <img
+          class="strap-art"
+          src="assets/bongo-w.svg"
+          alt=""
+          aria-hidden="true"
+        >
+
+        <div class="yellow-sticker">
+          <small>PIENSA. FILMA. GRABA.</small>
+          <strong>NOSOTROS PONEMOS<br>EL EQUIPO.</strong>
+        </div>
+
+        <p class="interaction-help">
+          PASÁ EL MOUSE, TOCALA O ARRASTRALA
+        </p>
       </div>
     </section>
 
-    <section class="ticker" aria-label="Servicios">
+    <!-- STRIP -->
+    <div class="ticker" aria-hidden="true">
       <div class="ticker-track">
-        <span>RODAJES</span><i>✦</i>
-        <span>CÁMARAS</span><i>✦</i>
-        <span>AUDIO</span><i>✦</i>
-        <span>GRIP</span><i>✦</i>
-        <span>PRODUCCIÓN</span><i>✦</i>
-        <span>RODAJES</span><i>✦</i>
-        <span>CÁMARAS</span><i>✦</i>
-        <span>AUDIO</span><i>✦</i>
-        <span>GRIP</span><i>✦</i>
-        <span>PRODUCCIÓN</span><i>✦</i>
+        <span>CÁMARAS</span><b>✦</b>
+        <span>AUDIO</span><b>✦</b>
+        <span>GRIP</span><b>✦</b>
+        <span>RODAJES</span><b>✦</b>
+        <span>PRODUCCIÓN</span><b>✦</b>
+        <span>CÁMARAS</span><b>✦</b>
+        <span>AUDIO</span><b>✦</b>
+        <span>GRIP</span><b>✦</b>
+        <span>RODAJES</span><b>✦</b>
+        <span>PRODUCCIÓN</span><b>✦</b>
       </div>
+    </div>
+
+    <!-- ====================================================
+         NOSOTROS
+         ==================================================== -->
+    <section class="about section" id="nosotros">
+
+      <div class="about-art reveal">
+        <div class="paper-collage">
+          <span class="paper-tape"></span>
+
+          <img
+            class="paper-sheep"
+            src="assets/cordero-mic-b.svg"
+            alt="Ilustración Ovejas Punk"
+          >
+
+          <span class="pink-doodle doodle-a">///</span>
+          <span class="pink-doodle doodle-b">↙</span>
+        </div>
+
+        <img
+          class="face-sticker"
+          src="assets/oveja-dibujo-papel.svg"
+          alt="Oveja Ovejas Punk"
+        >
+      </div>
+
+      <div class="about-text reveal">
+        <p class="section-number">01 / NOSOTROS</p>
+        <h2>SOBRE NOSOTROS</h2>
+        <div class="heading-brush"></div>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+          vulputate, sapien sed volutpat tincidunt, sapien ipsum pretium
+          neque, eu condimentum ipsum justo sed lorem.
+        </p>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Pellentesque tristique turpis a velit tempor, id luctus est egestas.
+          Suspendisse potenti.
+        </p>
+
+        <p class="manifesto">
+          NO VENDEMOS. ASESORAMOS.<br>
+          LOREM IPSUM DOLOR SIT AMET.
+        </p>
+
+        <div class="pink-banner">
+          MENOS DRAMA. MEJOR EQUIPO.<br>
+          MÁS HISTORIAS.
+        </div>
+
+        <img class="about-strap" src="assets/bongo-w.svg" alt="" aria-hidden="true">
+      </div>
+
     </section>
 
-    <section class="about section-shell" id="nosotros">
-      <div class="about-image-card punk-frame">
-        <img src="assets/about-placeholder.svg" alt="Imagen provisoria de Ovejas Punk">
-        <span class="sticker sticker-pink">NO<br>PASTURE</span>
-      </div>
+    <!-- ====================================================
+         PRODUCTOS
+         ==================================================== -->
+    <section class="products section" id="productos">
 
-      <div class="about-copy">
-        <p class="section-kicker">01 / NOSOTROS</p>
-        <h2>NO SOMOS<br>UN CATÁLOGO<br><span>ABURRIDO.</span></h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          tristique turpis a velit tempor, id luctus est egestas. Suspendisse
-          potenti. Donec vitae velit non purus aliquet egestas.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-          facilisi. Integer feugiat, tortor quis porta volutpat, erat sapien.
-        </p>
-      </div>
-    </section>
+      <div class="products-title reveal">
+        <span class="pink-rays">≋</span>
 
-    <section class="products section-shell" id="productos">
-      <div class="section-heading">
         <div>
-          <p class="section-kicker">02 / EQUIPOS</p>
+          <p class="section-number">02 / EQUIPOS</p>
           <h2>PRODUCTOS</h2>
         </div>
-        <p class="section-aside">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consultanos
-          disponibilidad, fechas y condiciones.
-        </p>
+
+        <span class="pink-rays">≋</span>
       </div>
+
+      <p class="products-description reveal">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Consultanos disponibilidad, fechas y condiciones.
+      </p>
 
       <div class="product-grid">
-        <article class="product-card">
-          <div class="product-image">
-            <img src="assets/product-camera.svg" alt="Cámara - imagen provisoria">
-            <span class="product-number">01</span>
+
+        <article class="product-card reveal" tabindex="0">
+          <span class="card-tape"></span>
+          <h3>CÁMARAS</h3>
+          <div class="pink-card-line"></div>
+
+          <div class="product-illustration">
+            <img src="assets/camera.svg" alt="Cámaras">
           </div>
-          <div class="product-body">
-            <p class="product-type">CÁMARA</p>
-            <h3>Lorem Camera Kit</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <button class="consult-btn" type="button" data-product="Lorem Camera Kit">
-              CONSULTAR
-              <span aria-hidden="true">↗</span>
-            </button>
+
+          <h4>Lorem Camera Kit</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+          <button
+            class="product-button wa-trigger sheep-trigger"
+            type="button"
+            data-product="Cámaras / Lorem Camera Kit"
+            data-message="Hola Ovejas Punk, quiero consultar por Cámaras / Lorem Camera Kit."
+          >
+            CONSULTAR
+          </button>
+        </article>
+
+
+        <article class="product-card reveal" tabindex="0">
+          <span class="card-tape"></span>
+          <h3>AUDIO</h3>
+          <div class="pink-card-line"></div>
+
+          <div class="product-illustration">
+            <img src="assets/headphones.svg" alt="Audio">
+          </div>
+
+          <h4>Lorem Audio Pack</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+          <button
+            class="product-button wa-trigger sheep-trigger"
+            type="button"
+            data-product="Audio / Lorem Audio Pack"
+            data-message="Hola Ovejas Punk, quiero consultar por Audio / Lorem Audio Pack."
+          >
+            CONSULTAR
+          </button>
+        </article>
+
+
+        <article class="product-card reveal" tabindex="0">
+          <span class="card-tape"></span>
+          <h3>GRIP</h3>
+          <div class="pink-card-line"></div>
+
+          <div class="product-illustration">
+            <img src="assets/grip.svg" alt="Grip">
+          </div>
+
+          <h4>Lorem Grip Set</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+          <button
+            class="product-button wa-trigger sheep-trigger"
+            type="button"
+            data-product="Grip / Lorem Grip Set"
+            data-message="Hola Ovejas Punk, quiero consultar por Grip / Lorem Grip Set."
+          >
+            CONSULTAR
+          </button>
+        </article>
+
+
+        <article class="product-card reveal" tabindex="0">
+          <span class="card-tape"></span>
+          <h3>MIXER</h3>
+          <div class="pink-card-line"></div>
+
+          <div class="product-illustration">
+            <img src="assets/mixer.svg" alt="Mixer">
+          </div>
+
+          <h4>Lorem Mixer</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+          <button
+            class="product-button wa-trigger sheep-trigger"
+            type="button"
+            data-product="Mixer / Lorem Mixer"
+            data-message="Hola Ovejas Punk, quiero consultar por Mixer / Lorem Mixer."
+          >
+            CONSULTAR
+          </button>
+        </article>
+
+
+        <article class="product-card reveal accessories-card" tabindex="0">
+          <span class="card-tape"></span>
+          <h3>ACCESORIOS</h3>
+          <div class="pink-card-line"></div>
+
+          <div class="product-illustration">
+            <img src="assets/bongo-b.svg" alt="Accesorios">
+          </div>
+
+          <h4>Lorem Accessories</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+          <button
+            class="product-button pink-product-button wa-trigger sheep-trigger"
+            type="button"
+            data-product="Accesorios / Lorem Accessories"
+            data-message="Hola Ovejas Punk, quiero consultar por Accesorios / Lorem Accessories."
+          >
+            CONSULTAR
+          </button>
+
+          <div class="mini-sheep-line" aria-hidden="true">
+            <img src="assets/cordero-mic-b.svg" alt="">
+            <img src="assets/cordero-mic-b.svg" alt="">
+            <img src="assets/cordero-mic-b.svg" alt="">
           </div>
         </article>
 
-        <article class="product-card">
-          <div class="product-image">
-            <img src="assets/product-audio.svg" alt="Audio - imagen provisoria">
-            <span class="product-number">02</span>
-          </div>
-          <div class="product-body">
-            <p class="product-type">AUDIO</p>
-            <h3>Lorem Audio Pack</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <button class="consult-btn" type="button" data-product="Lorem Audio Pack">
-              CONSULTAR
-              <span aria-hidden="true">↗</span>
-            </button>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-image">
-            <img src="assets/product-grip.svg" alt="Grip - imagen provisoria">
-            <span class="product-number">03</span>
-          </div>
-          <div class="product-body">
-            <p class="product-type">GRIP</p>
-            <h3>Lorem Grip Set</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <button class="consult-btn" type="button" data-product="Lorem Grip Set">
-              CONSULTAR
-              <span aria-hidden="true">↗</span>
-            </button>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-image">
-            <img src="assets/product-mixer.svg" alt="Mezcladora - imagen provisoria">
-            <span class="product-number">04</span>
-          </div>
-          <div class="product-body">
-            <p class="product-type">MIXER</p>
-            <h3>Lorem Mixer</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <button class="consult-btn" type="button" data-product="Lorem Mixer">
-              CONSULTAR
-              <span aria-hidden="true">↗</span>
-            </button>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-image">
-            <img src="assets/product-rig.svg" alt="Accesorios - imagen provisoria">
-            <span class="product-number">05</span>
-          </div>
-          <div class="product-body">
-            <p class="product-type">ACCESORIOS</p>
-            <h3>Lorem Rig Pack</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <button class="consult-btn" type="button" data-product="Lorem Rig Pack">
-              CONSULTAR
-              <span aria-hidden="true">↗</span>
-            </button>
-          </div>
-        </article>
       </div>
+
     </section>
 
-    <section class="contact section-shell" id="contacto">
-      <div class="section-heading contact-heading">
+    <div class="torn-paper-divider" aria-hidden="true"></div>
+
+    <!-- ====================================================
+         CONTACTO
+         ==================================================== -->
+    <section class="contact section" id="contacto">
+
+      <div class="contact-heading reveal">
+        <img src="assets/bongo-w.svg" alt="" aria-hidden="true">
+
         <div>
-          <p class="section-kicker">03 / CONTACTO</p>
-          <h2>DECINOS<br>QUÉ NECESITÁS.</h2>
+          <p class="section-number">03 / CONTACTO</p>
+          <h2>CONTACTO</h2>
         </div>
       </div>
 
       <div class="contact-grid">
-        <aside class="contact-card">
+
+        <div class="contact-card reveal">
           <p class="contact-intro">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mandanos
-            tu consulta o entrá directo por cualquiera de estos canales.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Tocá cualquier opción y te lleva a la consulta.
           </p>
 
-          <div class="contact-links">
-            <a id="contactWhatsapp" class="contact-link" href="#" target="_blank" rel="noopener">
-              <span class="contact-link-label">WHATSAPP</span>
-              <span class="contact-link-value" id="whatsappLabel">+54 9 11 XXXX XXXX</span>
-              <span class="contact-arrow">↗</span>
-            </a>
-
-            <a id="contactInstagram" class="contact-link" href="#" target="_blank" rel="noopener">
-              <span class="contact-link-label">INSTAGRAM</span>
-              <span class="contact-link-value">@ovejaspunk</span>
-              <span class="contact-arrow">↗</span>
-            </a>
-
-            <a id="contactEmail" class="contact-link" href="#">
-              <span class="contact-link-label">MAIL</span>
-              <span class="contact-link-value">hola@ovejaspunk.com</span>
-              <span class="contact-arrow">↗</span>
-            </a>
-          </div>
-
-          <div class="contact-note">
-            <span>★</span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-        </aside>
-
-        <div class="forms-card">
           <!--
-            GOOGLE FORMS:
-            No hace falta tocar este HTML.
-            Reemplazá googleFormsUrl en SITE_CONFIG dentro de script.js.
+            POR PEDIDO: todos estos enlaces de contacto van a WhatsApp.
+            El número se configura UNA SOLA VEZ en script.js.
           -->
-          <div id="formsPlaceholder" class="forms-placeholder">
-            <span class="forms-icon">↙</span>
-            <strong>PEGÁ ACÁ TU GOOGLE FORM</strong>
-            <p>
-              Abrí <code>script.js</code> y reemplazá
-              <code>googleFormsUrl</code> por el link de inserción de tu formulario.
-            </p>
+          <button
+            class="contact-row wa-trigger"
+            type="button"
+            data-message="Hola Ovejas Punk, quiero hacer una consulta por WhatsApp."
+          >
+            <span class="contact-icon whatsapp-icon">W</span>
+            <span class="contact-copy">
+              <small>WHATSAPP</small>
+              <strong id="whatsappVisible">+54 9 11 XXXX XXXX</strong>
+            </span>
+            <b>→</b>
+          </button>
+
+          <button
+            class="contact-row wa-trigger"
+            type="button"
+            data-message="Hola Ovejas Punk, quiero consultar por sus redes y productos."
+          >
+            <span class="contact-icon instagram-icon">◎</span>
+            <span class="contact-copy">
+              <small>INSTAGRAM</small>
+              <strong>@ovejaspunk</strong>
+            </span>
+            <b>→</b>
+          </button>
+
+          <button
+            class="contact-row wa-trigger"
+            type="button"
+            data-message="Hola Ovejas Punk, quiero hacer una consulta."
+          >
+            <span class="contact-icon mail-icon">✉</span>
+            <span class="contact-copy">
+              <small>CONSULTAS</small>
+              <strong>Escribinos por WhatsApp</strong>
+            </span>
+            <b>→</b>
+          </button>
+
+          <img class="contact-ghost-logo" src="assets/iso-w.svg" alt="" aria-hidden="true">
+        </div>
+
+
+        <div class="form-collage reveal">
+          <span class="form-tape form-tape-top"></span>
+          <span class="form-tape form-tape-right"></span>
+
+          <div class="google-placeholder" id="googlePlaceholder">
+            <div class="forms-symbol">▦</div>
+            <h3>Formulario de Google</h3>
+            <p>(Formulario incrustado)</p>
+            <span>
+              Completá el formulario y te responderemos a la brevedad.
+            </span>
+
+            <code>script.js → googleFormsUrl</code>
           </div>
 
           <iframe
-            id="googleFormFrame"
-            class="google-form-frame"
+            id="googleForm"
+            class="google-form"
             title="Formulario de contacto Ovejas Punk"
             loading="lazy"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
             hidden
-          >Cargando…</iframe>
+          ></iframe>
+
+          <img
+            class="form-face"
+            src="assets/oveja-dibujo-papel.svg"
+            alt=""
+            aria-hidden="true"
+          >
         </div>
+
       </div>
     </section>
+
   </main>
 
+
+  <!-- ======================================================
+       FOOTER
+       ====================================================== -->
   <footer class="site-footer">
-    <div>
-      <strong>OVEJAS PUNK</strong>
-      <span>ALQUILER PARA PRODUCCIONES AUDIOVISUALES</span>
-    </div>
-    <p>© <span id="year"></span> Ovejas Punk.</p>
+    <img src="assets/iso-w.svg" alt="Ovejas Punk">
+
+    <span>OVEJAS PUNK</span>
+    <i>•</i>
+    <span>SOLO CONSULTAS</span>
+    <i>•</i>
+    <span>BUENOS AIRES, ARGENTINA</span>
+
+    <button
+      class="footer-zap wa-trigger"
+      type="button"
+      data-message="Hola Ovejas Punk, quiero hacer una consulta."
+      aria-label="Consultar por WhatsApp"
+    >
+      ϟ
+    </button>
   </footer>
 
+
+  <!-- FLOATING CONSULT -->
+  <button
+    class="floating-whatsapp wa-trigger"
+    type="button"
+    data-message="Hola Ovejas Punk, quiero hacer una consulta."
+    aria-label="Consultar por WhatsApp"
+  >
+    <span>CONSULTAR</span>
+    <b>W</b>
+  </button>
+
+
+  <!-- SHEEP CLICK ANIMATION -->
   <div id="sheepLayer" class="sheep-layer" aria-hidden="true"></div>
+
 
   <script src="script.js"></script>
 </body>
