@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <rect width="600" height="600" rx="300" fill="#f2efe7"/>
+  <circle cx="300" cy="300" r="270" fill="none" stroke="#111" stroke-width="24" stroke-dasharray="20 13"/>
+  <g transform="translate(112 168)">
+    <circle cx="122" cy="144" r="95" fill="#d9ff3f" stroke="#111" stroke-width="16"/>
+    <circle cx="205" cy="112" r="98" fill="#d9ff3f" stroke="#111" stroke-width="16"/>
+    <circle cx="265" cy="162" r="92" fill="#d9ff3f" stroke="#111" stroke-width="16"/>
+    <circle cx="187" cy="189" r="105" fill="#d9ff3f" stroke="#111" stroke-width="16"/>
+    <path d="M285 100c55-18 96 28 72 75-18 34-64 44-94 12-29-31-18-74 22-87z" fill="#111"/>
+    <circle cx="331" cy="126" r="8" fill="#f2efe7"/>
+    <path d="M300 89l-13-43 42 34zm43 5l35-30-14 45z" fill="#111"/>
+  </g>
+  <text x="300" y="470" text-anchor="middle" font-family="Impact, Arial Black, sans-serif"
+        font-size="72" letter-spacing="2" fill="#111">OVEJAS</text>
+  <text x="300" y="535" text-anchor="middle" font-family="Impact, Arial Black, sans-serif"
+        font-size="72" letter-spacing="5" fill="#ff4fa3" stroke="#111" stroke-width="2">PUNK</text>
+</svg>

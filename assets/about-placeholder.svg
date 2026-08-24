@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+  <rect width="800" height="1000" fill="#171717"/>
+  <g stroke="#f2efe7" stroke-width="3" opacity=".24">
+    <path d="M0 100L800 700M-100 250L700 850M100 0L800 525M0 800L800 200"/>
+    <path d="M90 0V1000M250 0V1000M410 0V1000M570 0V1000M730 0V1000"/>
+  </g>
+  <rect x="95" y="130" width="610" height="680" fill="#d9ff3f" stroke="#f2efe7" stroke-width="8" transform="rotate(-4 400 470)"/>
+  <rect x="160" y="190" width="480" height="570" fill="#111" stroke="#111" stroke-width="8"/>
+  <circle cx="395" cy="410" r="145" fill="#f2efe7"/>
+  <circle cx="310" cy="430" r="92" fill="#f2efe7"/>
+  <circle cx="480" cy="450" r="96" fill="#f2efe7"/>
+  <path d="M512 335c93-14 140 99 62 154-56 39-129-10-120-76 5-39 24-71 58-78z" fill="#111"/>
+  <circle cx="560" cy="390" r="10" fill="#f2efe7"/>
+  <path d="M532 328l-16-63 58 52zm46 6l50-43-19 67z" fill="#111"/>
+  <text x="400" y="915" text-anchor="middle" font-family="Impact, Arial Black, sans-serif" font-size="78" fill="#ff4fa3">FOTO PROVISORIA</text>
+</svg>

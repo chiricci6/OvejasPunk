@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111111">
+  <meta name="description" content="Ovejas Punk — alquiler de equipamiento y materiales para producciones audiovisuales.">
+  <title>Ovejas Punk | Alquiler audiovisual</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand-mini" href="#inicio" aria-label="Ir al inicio">
+      <span class="brand-dot"></span>
+      OVEJAS PUNK
+    </a>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#productos">Productos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <p class="eyebrow">ALQUILER · PRODUCCIÓN · RODAJE</p>
+        <h1>OVEJAS<br><span>PUNK</span></h1>
+        <p class="hero-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non
+          justo vitae erat feugiat posuere. Sed vitae sem eget mi sodales.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#productos">VER EQUIPOS</a>
+          <a class="btn btn-ghost" href="#contacto">HABLAR CON NOSOTROS</a>
+        </div>
+      </div>
+
+      <div class="hero-logo-zone">
+        <div class="orbit orbit-one" aria-hidden="true"></div>
+        <div class="orbit orbit-two" aria-hidden="true"></div>
+
+        <div class="rotating-logo-wrap" id="rotatingLogoWrap">
+          <!--
+            REEMPLAZO DEL LOGO:
+            1. Copiá tu archivo dentro de /assets/
+            2. Si se llama "logo.png", cambiá el src de abajo por:
+               assets/logo.png
+          -->
+          <img
+            id="rotatingLogo"
+            class="rotating-logo"
+            src="assets/logo-ovejas-punk.svg"
+            alt="Logo de Ovejas Punk"
+          >
+        </div>
+
+        <p class="logo-hint">MOVÉ EL MOUSE ACÁ → ACELERA</p>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Servicios">
+      <div class="ticker-track">
+        <span>RODAJES</span><i>✦</i>
+        <span>CÁMARAS</span><i>✦</i>
+        <span>AUDIO</span><i>✦</i>
+        <span>GRIP</span><i>✦</i>
+        <span>PRODUCCIÓN</span><i>✦</i>
+        <span>RODAJES</span><i>✦</i>
+        <span>CÁMARAS</span><i>✦</i>
+        <span>AUDIO</span><i>✦</i>
+        <span>GRIP</span><i>✦</i>
+        <span>PRODUCCIÓN</span><i>✦</i>
+      </div>
+    </section>
+
+    <section class="about section-shell" id="nosotros">
+      <div class="about-image-card punk-frame">
+        <img src="assets/about-placeholder.svg" alt="Imagen provisoria de Ovejas Punk">
+        <span class="sticker sticker-pink">NO<br>PASTURE</span>
+      </div>
+
+      <div class="about-copy">
+        <p class="section-kicker">01 / NOSOTROS</p>
+        <h2>NO SOMOS<br>UN CATÁLOGO<br><span>ABURRIDO.</span></h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+          tristique turpis a velit tempor, id luctus est egestas. Suspendisse
+          potenti. Donec vitae velit non purus aliquet egestas.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+          facilisi. Integer feugiat, tortor quis porta volutpat, erat sapien.
+        </p>
+      </div>
+    </section>
+
+    <section class="products section-shell" id="productos">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">02 / EQUIPOS</p>
+          <h2>PRODUCTOS</h2>
+        </div>
+        <p class="section-aside">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consultanos
+          disponibilidad, fechas y condiciones.
+        </p>
+      </div>
+
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-image">
+            <img src="assets/product-camera.svg" alt="Cámara - imagen provisoria">
+            <span class="product-number">01</span>
+          </div>
+          <div class="product-body">
+            <p class="product-type">CÁMARA</p>
+            <h3>Lorem Camera Kit</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <button class="consult-btn" type="button" data-product="Lorem Camera Kit">
+              CONSULTAR
+              <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">
+            <img src="assets/product-audio.svg" alt="Audio - imagen provisoria">
+            <span class="product-number">02</span>
+          </div>
+          <div class="product-body">
+            <p class="product-type">AUDIO</p>
+            <h3>Lorem Audio Pack</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <button class="consult-btn" type="button" data-product="Lorem Audio Pack">
+              CONSULTAR
+              <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">
+            <img src="assets/product-grip.svg" alt="Grip - imagen provisoria">
+            <span class="product-number">03</span>
+          </div>
+          <div class="product-body">
+            <p class="product-type">GRIP</p>
+            <h3>Lorem Grip Set</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <button class="consult-btn" type="button" data-product="Lorem Grip Set">
+              CONSULTAR
+              <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">
+            <img src="assets/product-mixer.svg" alt="Mezcladora - imagen provisoria">
+            <span class="product-number">04</span>
+          </div>
+          <div class="product-body">
+            <p class="product-type">MIXER</p>
+            <h3>Lorem Mixer</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <button class="consult-btn" type="button" data-product="Lorem Mixer">
+              CONSULTAR
+              <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">
+            <img src="assets/product-rig.svg" alt="Accesorios - imagen provisoria">
+            <span class="product-number">05</span>
+          </div>
+          <div class="product-body">
+            <p class="product-type">ACCESORIOS</p>
+            <h3>Lorem Rig Pack</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <button class="consult-btn" type="button" data-product="Lorem Rig Pack">
+              CONSULTAR
+              <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact section-shell" id="contacto">
+      <div class="section-heading contact-heading">
+        <div>
+          <p class="section-kicker">03 / CONTACTO</p>
+          <h2>DECINOS<br>QUÉ NECESITÁS.</h2>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <aside class="contact-card">
+          <p class="contact-intro">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mandanos
+            tu consulta o entrá directo por cualquiera de estos canales.
+          </p>
+
+          <div class="contact-links">
+            <a id="contactWhatsapp" class="contact-link" href="#" target="_blank" rel="noopener">
+              <span class="contact-link-label">WHATSAPP</span>
+              <span class="contact-link-value" id="whatsappLabel">+54 9 11 XXXX XXXX</span>
+              <span class="contact-arrow">↗</span>
+            </a>
+
+            <a id="contactInstagram" class="contact-link" href="#" target="_blank" rel="noopener">
+              <span class="contact-link-label">INSTAGRAM</span>
+              <span class="contact-link-value">@ovejaspunk</span>
+              <span class="contact-arrow">↗</span>
+            </a>
+
+            <a id="contactEmail" class="contact-link" href="#">
+              <span class="contact-link-label">MAIL</span>
+              <span class="contact-link-value">hola@ovejaspunk.com</span>
+              <span class="contact-arrow">↗</span>
+            </a>
+          </div>
+
+          <div class="contact-note">
+            <span>★</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </aside>
+
+        <div class="forms-card">
+          <!--
+            GOOGLE FORMS:
+            No hace falta tocar este HTML.
+            Reemplazá googleFormsUrl en SITE_CONFIG dentro de script.js.
+          -->
+          <div id="formsPlaceholder" class="forms-placeholder">
+            <span class="forms-icon">↙</span>
+            <strong>PEGÁ ACÁ TU GOOGLE FORM</strong>
+            <p>
+              Abrí <code>script.js</code> y reemplazá
+              <code>googleFormsUrl</code> por el link de inserción de tu formulario.
+            </p>
+          </div>
+
+          <iframe
+            id="googleFormFrame"
+            class="google-form-frame"
+            title="Formulario de contacto Ovejas Punk"
+            loading="lazy"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            hidden
+          >Cargando…</iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>OVEJAS PUNK</strong>
+      <span>ALQUILER PARA PRODUCCIONES AUDIOVISUALES</span>
+    </div>
+    <p>© <span id="year"></span> Ovejas Punk.</p>
+  </footer>
+
+  <div id="sheepLayer" class="sheep-layer" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

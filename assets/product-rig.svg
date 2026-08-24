@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620">
+  <rect width="900" height="620" fill="#e8e3d6"/>
+  <g opacity=".18" stroke="#111" stroke-width="4">
+    <path d="M0 80H900M0 180H900M0 280H900M0 380H900M0 480H900M0 580H900"/>
+    <path d="M80 0V620M220 0V620M360 0V620M500 0V620M640 0V620M780 0V620"/>
+  </g>
+  <rect x="85" y="74" width="730" height="470" rx="0" fill="#ff4fa3" stroke="#111" stroke-width="10" transform="rotate(-2 450 310)"/>
+  <text x="450" y="350" text-anchor="middle" font-family="Impact, Arial Black, sans-serif" font-size="165" fill="#111">RIG</text>
+  <text x="450" y="495" text-anchor="middle" font-family="Impact, Arial Black, sans-serif" font-size="66" letter-spacing="4" fill="#111">RIG</text>
+</svg>
