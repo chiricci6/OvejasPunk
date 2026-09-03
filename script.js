@@ -16,6 +16,10 @@ const SITE_CONFIG = {
   // Es únicamente el texto visible en la web.
   whatsappLabel: "+54 9 11 XXXX XXXX",
 
+  // Instagram: cambiar link y texto acá.
+  instagramUrl: "https://www.instagram.com/ovejaspunk/",
+  instagramLabel: "@ovejaspunk",
+
   /*
     GOOGLE FORMS
     En tu formulario:
@@ -67,6 +71,26 @@ function openWhatsapp(message) {
   }
 
   window.location.href = url;
+}
+
+
+
+
+/* =========================================================
+   INSTAGRAM
+   ========================================================= */
+
+function setupInstagram() {
+  const link = document.getElementById("instagramLink");
+  const label = document.getElementById("instagramVisible");
+
+  if (link) {
+    link.href = SITE_CONFIG.instagramUrl;
+  }
+
+  if (label) {
+    label.textContent = SITE_CONFIG.instagramLabel;
+  }
 }
 
 
@@ -414,6 +438,7 @@ function setupReveal() {
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+  setupInstagram();
   setupGoogleForm();
   setupInteractiveSheep();
   setupWhatsappTriggers();

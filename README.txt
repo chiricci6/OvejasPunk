@@ -119,3 +119,15 @@ Incluye:
 - tarjetas que pasan de 5 a 3, 2 y 1 columnas;
 - hero reacomodado;
 - Google Forms responsive.
+
+
+CAMBIOS DE ESTA ENTREGA
+- Se mantuvo la web original como base.
+- Header: logo más grande y WhatsApp real.
+- Hero: wordmark exacto del logo, descripción final y cartel amarillo actualizado.
+- Oveja de Consultar más grande.
+- Ticker actualizado.
+- Cómo alquilar reemplaza Sobre nosotros.
+- Equipos reemplaza Productos (tarjetas conservadas).
+- Contacto actualizado con logos WhatsApp e Instagram.
+- Instagram se configura en SITE_CONFIG de script.js.

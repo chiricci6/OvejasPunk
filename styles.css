@@ -1531,3 +1531,134 @@ img {
     animation-delay: 0ms !important;
   }
 }
+
+
+/* =========================================================
+   AJUSTES PUNTUALES SOLICITADOS — mantiene diseño original
+   ========================================================= */
+
+/* Header: mismo header, logo real más grande y sin aire del SVG */
+.site-header {
+  min-height: 102px;
+}
+
+.brand-link {
+  width: clamp(235px, 24vw, 335px);
+  height: 80px;
+}
+
+/* WhatsApp real en header */
+.nav-whatsapp {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  transform: none;
+}
+
+.nav-whatsapp img {
+  width: 43px;
+  height: 43px;
+}
+
+.nav-whatsapp:hover {
+  transform: rotate(-7deg) scale(1.1);
+}
+
+/* El título usa exactamente el wordmark vectorial del logo */
+.hero-wordmark {
+  display: block;
+  width: min(100%, 690px);
+  margin: 22px 0 0;
+  filter: drop-shadow(0 0 1px rgba(255,255,255,.18));
+}
+
+/* Oveja de CONSULTAR más grande, sin agrandar brutalmente el botón */
+.button-paper img {
+  width: 44px;
+  height: 44px;
+  margin: -5px -4px -5px 1px;
+}
+
+.button-paper {
+  min-height: 60px;
+}
+
+/* Las rayas van arriba y la flecha también, apuntando hacia arriba */
+.doodle-a {
+  left: 8%;
+  top: 7%;
+  bottom: auto;
+  z-index: 5;
+  transform: rotate(13deg);
+}
+
+.doodle-b {
+  right: 10%;
+  top: 7%;
+  bottom: auto;
+  z-index: 5;
+  font-size: 4.5rem;
+  transform: rotate(8deg);
+}
+
+/* Logos reales de contacto */
+.contact-row {
+  text-decoration: none;
+}
+
+.contact-social-logo {
+  width: 43px;
+  height: 43px;
+  object-fit: contain;
+}
+
+/* Mantener el botón flotante pero con el logo real */
+.floating-whatsapp img {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 950px) {
+  .site-header {
+    min-height: 88px;
+  }
+
+  .brand-link {
+    width: 235px;
+    height: 68px;
+  }
+
+  .main-nav {
+    top: 88px;
+  }
+
+  .hero-wordmark {
+    width: min(100%, 620px);
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    min-height: 82px;
+  }
+
+  .brand-link {
+    width: 205px;
+    height: 61px;
+  }
+
+  .main-nav {
+    top: 82px;
+  }
+
+  .hero-wordmark {
+    width: min(100%, 540px);
+  }
+
+  .floating-whatsapp img {
+    width: 38px;
+    height: 38px;
+  }
+}
