@@ -1,34 +1,48 @@
-OVEJAS PUNK — WEB FINAL
+OVEJAS PUNK — WEB V4
 
-Esta versión recrea la estética del diseño aprobado:
-- Fondo negro / carbón.
-- Crema.
-- Rosa fuerte.
-- Amarillo ácido.
-- Collage, cintas, papeles, ilustraciones y textura.
-- OVEJA BLANCA como identidad principal en header y hero.
-
-ARCHIVOS
-- index.html
-- styles.css
-- script.js
-- assets/
+CAMBIOS DE ESTA VERSION
+-----------------------
+- Logo de WhatsApp real en header, contacto, footer y botón flotante.
+- Logo del header más grande.
+- El título principal OVEJAS PUNK usa el vector/tipografía del logo original.
+- Oveja del botón CONSULTAR más grande.
+- Texto amarillo:
+  PENSÁ. ALQUILÁ. GRABÁ.
+  NOSOTROS PONEMOS EL EQUIPO.
+- Nueva descripción principal de alquiler de sonido.
+- Banner rosa actualizado:
+  corbateros / shotguns / micrófonos inalámbricos /
+  grabadoras portátiles / heno ties / meeeeh 🐑
+- Rayas del collage subidas.
+- Flecha del collage apunta hacia arriba.
+- "Sobre nosotros" reemplazado por "Cómo alquilar".
+- Se agregó el procedimiento de reserva y pago.
+- "Productos" reemplazado por "Equipos".
+- Se cargaron los 10 equipos solicitados.
+- Nuevo texto de contacto.
+- Logos de WhatsApp e Instagram.
+- Responsive completo.
+- Oveja principal interactiva.
+- Animación lenta de ovejas en botones CONSULTAR.
 
 ============================================================
-1. CONFIGURAR WHATSAPP
+CONFIGURAR WHATSAPP
 ============================================================
 
-Abrí script.js.
+Abrir:
+script.js
 
-Arriba de todo:
+Al principio:
 
 const SITE_CONFIG = {
-    whatsappNumber: "54911XXXXXXXX",
-    whatsappLabel: "+54 9 11 XXXX XXXX",
-    googleFormsUrl: "REEMPLAZAR_CON_URL_EMBED_DE_GOOGLE_FORMS"
+  whatsappNumber: "54911XXXXXXXX",
+  whatsappLabel: "+54 9 11 XXXX XXXX",
+  instagramUrl: "https://www.instagram.com/ovejaspunk/",
+  instagramLabel: "@ovejaspunk",
+  googleFormsUrl: "REEMPLAZAR_CON_URL_EMBED_DE_GOOGLE_FORMS"
 };
 
-Cuando tengas el número real, por ejemplo:
+Ejemplo de WhatsApp:
 
 whatsappNumber: "5491122334455"
 
@@ -37,85 +51,76 @@ IMPORTANTE:
 - sin espacios
 - sin guiones
 
-whatsappLabel es solamente el texto que se muestra.
-
-Todos los botones de consulta/contacto están centralizados en
-esa única configuración.
-
-Los links de NOSOTROS / PRODUCTOS / CONTACTO del menú son
-navegación interna de la misma página.
-
 ============================================================
-2. GOOGLE FORMS
+CONFIGURAR INSTAGRAM
 ============================================================
 
-En Google Forms:
-1. Abrí tu formulario.
-2. Elegí "Enviar".
-3. Elegí el icono "<>".
-4. Google mostrará un iframe.
-5. Copiá solamente el contenido de src="...".
+Cambiar:
+
+instagramUrl:
+"https://www.instagram.com/ovejaspunk/"
+
+instagramLabel:
+"@ovejaspunk"
+
+============================================================
+CONFIGURAR GOOGLE FORMS
+============================================================
+
+1. Abrir Google Forms.
+2. Enviar.
+3. Elegir <> Insertar HTML.
+4. Copiar solamente el src del iframe.
 
 Ejemplo:
 
 https://docs.google.com/forms/d/e/XXXXXXXX/viewform?embedded=true
 
-Pegalo en script.js:
+Pegar en:
 
 googleFormsUrl:
 "https://docs.google.com/forms/d/e/XXXXXXXX/viewform?embedded=true"
 
-No hace falta modificar index.html.
+No hace falta tocar index.html.
 
 ============================================================
-3. INTERACCIONES
+EQUIPOS
 ============================================================
 
-La oveja blanca grande del inicio:
-- gira lentamente sola;
+Se cargaron:
+
+1. Zoom H6 Essential
+2. Sennheiser MKE 600
+3. Sony ECM-W3
+4. Sennheiser G4
+5. Cable XLR — 2 m
+6. Cable XLR — 6 m
+7. Faja de cadera
+8. Faja de muslo
+9. Faja de tobillo
+10. Bongo Ties — 15 unidades de 10 cm
+
+Cada botón CONSULTAR tiene su propio mensaje de WhatsApp.
+
+============================================================
+INTERACCIONES
+============================================================
+
+OVEJA PRINCIPAL
+- gira sola;
 - acelera al pasar el mouse;
-- mover rápido el mouse le da impulso;
-- se puede tocar;
+- recibe impulso al mover el mouse;
 - se puede arrastrar;
-- Enter o espacio también le da impulso.
+- se puede tocar en celular;
+- Enter y espacio también le dan impulso.
 
-Tarjetas:
-- reaccionan al hover;
-- reaccionan al toque;
-- las imágenes se mueven suavemente.
+CONSULTAR
+- genera ovejas caminando lentamente;
+- después abre WhatsApp.
 
-Botones CONSULTAR:
-- generan una estampida lenta de ovejas;
-- esperan para que la animación se vea;
-- luego abren WhatsApp.
-
-============================================================
-4. PRODUCTOS
-============================================================
-
-Los productos se editan en index.html.
-
-Cada tarjeta es:
-
-<article class="product-card">
-
-El mensaje de WhatsApp está en:
-
-data-message="..."
-
-Ejemplo:
-
-data-message="Hola Ovejas Punk, quiero consultar por Cámaras."
-
-============================================================
-5. RESPONSIVE
-============================================================
-
-Incluye:
-- escritorio;
+RESPONSIVE
+- desktop;
 - tablet;
 - celular;
 - menú móvil;
-- tarjetas que pasan de 5 a 3, 2 y 1 columnas;
-- hero reacomodado;
-- Google Forms responsive.
+- grilla de equipos adaptable.

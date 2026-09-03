@@ -3,336 +3,572 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090d0e">
-  <meta name="description" content="Ovejas Punk — alquiler de equipos y materiales para producciones audiovisuales. Solo consultas.">
-  <title>Ovejas Punk | Alquiler Audiovisual</title>
-
+  <meta name="theme-color" content="#080c0d">
+  <meta
+    name="description"
+    content="Ovejas Punk — alquiler de equipos de sonido para cine y producciones audiovisuales."
+  >
+  <title>Ovejas Punk | Alquiler de sonido audiovisual</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
 
+<body>
   <div class="grain" aria-hidden="true"></div>
 
-  <!-- ======================================================
+  <!-- =====================================================
        HEADER
-       ====================================================== -->
+       ===================================================== -->
   <header class="site-header">
-    <a class="brand-link" href="#inicio" aria-label="Ovejas Punk - Inicio">
-      <img src="assets/ovejas-w.svg" alt="Ovejas Punk">
+    <a class="brand" href="#inicio" aria-label="Ovejas Punk - Inicio">
+      <img src="assets/ovejas-header-w.svg" alt="Ovejas Punk">
     </a>
 
-    <button class="menu-button" type="button" aria-label="Abrir menú" aria-expanded="false">
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+    >
       <span></span>
       <span></span>
     </button>
 
     <nav class="main-nav" aria-label="Navegación principal">
-      <a href="#nosotros">Nosotros</a>
-      <a href="#productos">Productos</a>
+      <a href="#como-alquilar">Cómo alquilar</a>
+      <a href="#equipos">Equipos</a>
       <a href="#contacto">Contacto</a>
-      <button class="nav-whatsapp wa-trigger" type="button" data-message="Hola Ovejas Punk, quiero hacer una consulta." aria-label="Consultar por WhatsApp">
-        ϟ
+
+      <button
+        class="header-whatsapp whatsapp-trigger"
+        type="button"
+        data-message="Hola Ovejas Punk, quiero hacer una consulta."
+        aria-label="Consultar por WhatsApp"
+      >
+        <img src="assets/whatsapp.svg" alt="WhatsApp">
       </button>
     </nav>
   </header>
 
   <main>
 
-    <!-- ====================================================
+    <!-- =====================================================
          HERO
-         ==================================================== -->
+         ===================================================== -->
     <section class="hero" id="inicio">
-
       <div class="hero-copy reveal">
-        <p class="eyebrow">ALQUILER DE EQUIPOS / SOLO CONSULTA</p>
+        <p class="eyebrow">ALQUILER DE SONIDO / PRODUCCIÓN AUDIOVISUAL</p>
 
-        <h1>
-          <span>OVEJAS</span>
-          <span>PUNK</span>
-        </h1>
+        <!--
+          El título usa DIRECTAMENTE la tipografía/vector del logo original.
+        -->
+        <img
+          class="hero-wordmark"
+          src="assets/ovejas-wordmark-w.svg"
+          alt="Ovejas Punk"
+        >
 
         <div class="pink-brush" aria-hidden="true"></div>
 
         <p class="hero-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Equipos y materiales para grabaciones, películas y producciones
-          audiovisuales. <mark>Solo consulta.</mark>
+          Alquiler de equipos de sonido para cine y producciones audiovisuales.
+          Micrófonos inalámbricos, corbateros, micrófonos para boom,
+          grabadoras portátiles y accesorios de sonido.
         </p>
 
-        <div class="hero-buttons">
-          <a class="button button-pink" href="#productos">
+        <div class="hero-actions">
+          <a class="button button-pink" href="#equipos">
             VER EQUIPOS <span>→</span>
           </a>
 
           <button
-            class="button button-paper wa-trigger"
+            class="button button-paper whatsapp-trigger"
             type="button"
             data-message="Hola Ovejas Punk, quiero consultar por alquiler de equipos."
           >
             CONSULTAR
-            <img src="assets/iso-b.svg" alt="">
+            <img class="button-sheep" src="assets/iso-b.svg" alt="">
           </button>
         </div>
 
-        <div class="handwritten">
+        <div class="hero-manifesto">
           <span>PRODUCIR ES CAOS.</span>
           <span>EQUIPATE BIEN.</span>
         </div>
       </div>
 
-      <div class="hero-art reveal" id="interactiveHero">
-        <span class="hero-tape hero-tape-a"></span>
-        <span class="hero-tape hero-tape-b"></span>
-        <span class="hero-lightning">ϟ</span>
+      <div class="hero-art reveal">
+        <span class="tape tape-a" aria-hidden="true"></span>
+        <span class="tape tape-b" aria-hidden="true"></span>
+        <span class="lightning" aria-hidden="true">ϟ</span>
 
-        <div class="scratched-circle circle-a"></div>
-        <div class="scratched-circle circle-b"></div>
+        <div class="ring ring-a" aria-hidden="true"></div>
+        <div class="ring ring-b" aria-hidden="true"></div>
 
         <div
-          class="rotating-sheep"
-          id="rotatingSheep"
-          role="img"
-          aria-label="Oveja blanca Ovejas Punk interactiva"
+          class="rotor"
+          id="rotor"
           tabindex="0"
+          aria-label="Oveja interactiva Ovejas Punk"
         >
-          <img id="rotatingSheepImage" src="assets/iso-w.svg" alt="">
+          <img id="rotorImage" src="assets/iso-w.svg" alt="">
         </div>
 
         <img
           class="boom-sheep"
           src="assets/cordero-mic-w.svg"
-          alt="Oveja Ovejas Punk con micrófono"
+          alt="Oveja con micrófono boom"
         >
 
         <img
-          class="strap-art"
+          class="hero-bongo"
           src="assets/bongo-w.svg"
           alt=""
           aria-hidden="true"
         >
 
-        <div class="yellow-sticker">
-          <small>PIENSA. FILMA. GRABA.</small>
+        <div class="yellow-note">
+          <span>PENSÁ. ALQUILÁ. GRABÁ.</span>
           <strong>NOSOTROS PONEMOS<br>EL EQUIPO.</strong>
         </div>
 
-        <p class="interaction-help">
-          PASÁ EL MOUSE, TOCALA O ARRASTRALA
+        <p class="interaction-hint">
+          PASÁ EL MOUSE · TOCALA · ARRASTRALA
         </p>
       </div>
     </section>
 
-    <!-- STRIP -->
+
+    <!-- =====================================================
+         BANNER MOVIL
+         ===================================================== -->
     <div class="ticker" aria-hidden="true">
       <div class="ticker-track">
-        <span>CÁMARAS</span><b>✦</b>
-        <span>AUDIO</span><b>✦</b>
-        <span>GRIP</span><b>✦</b>
-        <span>RODAJES</span><b>✦</b>
-        <span>PRODUCCIÓN</span><b>✦</b>
-        <span>CÁMARAS</span><b>✦</b>
-        <span>AUDIO</span><b>✦</b>
-        <span>GRIP</span><b>✦</b>
-        <span>RODAJES</span><b>✦</b>
-        <span>PRODUCCIÓN</span><b>✦</b>
+        <span>CORBATERO​S</span><b>✦</b>
+        <span>SHOTGUNS</span><b>✦</b>
+        <span>MICRÓFONOS INALÁMBRICOS</span><b>✦</b>
+        <span>GRABADORAS PORTÁTILES</span><b>✦</b>
+        <span>HENO TIES</span><b>✦</b>
+        <span>MEEEEH 🐑</span><b>✦</b>
+
+        <span>CORBATERO​S</span><b>✦</b>
+        <span>SHOTGUNS</span><b>✦</b>
+        <span>MICRÓFONOS INALÁMBRICOS</span><b>✦</b>
+        <span>GRABADORAS PORTÁTILES</span><b>✦</b>
+        <span>HENO TIES</span><b>✦</b>
+        <span>MEEEEH 🐑</span><b>✦</b>
       </div>
     </div>
 
-    <!-- ====================================================
-         NOSOTROS
-         ==================================================== -->
-    <section class="about section" id="nosotros">
 
-      <div class="about-art reveal">
+    <!-- =====================================================
+         COMO ALQUILAR
+         ===================================================== -->
+    <section class="how-to section" id="como-alquilar">
+      <div class="how-art reveal">
         <div class="paper-collage">
-          <span class="paper-tape"></span>
+          <span class="paper-tape" aria-hidden="true"></span>
+
+          <!--
+            Las tres rayas subieron para no tapar la oveja.
+          -->
+          <span class="pink-doodle doodle-lines" aria-hidden="true">///</span>
+          <span class="pink-doodle doodle-arrow" aria-hidden="true">↑</span>
 
           <img
             class="paper-sheep"
             src="assets/cordero-mic-b.svg"
-            alt="Ilustración Ovejas Punk"
+            alt="Oveja Ovejas Punk"
           >
-
-          <span class="pink-doodle doodle-a">///</span>
-          <span class="pink-doodle doodle-b">↙</span>
         </div>
 
         <img
           class="face-sticker"
           src="assets/oveja-dibujo-papel.svg"
-          alt="Oveja Ovejas Punk"
+          alt="Dibujo de oveja Ovejas Punk"
         >
       </div>
 
-      <div class="about-text reveal">
-        <p class="section-number">01 / NOSOTROS</p>
-        <h2>SOBRE NOSOTROS</h2>
+      <div class="how-copy reveal">
+        <p class="section-number">01 / CÓMO ALQUILAR</p>
+        <h2>CÓMO<br>ALQUILAR</h2>
         <div class="heading-brush"></div>
 
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-          vulputate, sapien sed volutpat tincidunt, sapien ipsum pretium
-          neque, eu condimentum ipsum justo sed lorem.
+        <p class="how-main-copy">
+          Elegí los equipos que necesitás, consultá su disponibilidad y
+          coordinamos la fecha y el horario de retiro. Para reservar, se abona
+          una seña del 50% del alquiler. El saldo se completa al retirar los
+          equipos, junto con la firma del contrato.
         </p>
 
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Pellentesque tristique turpis a velit tempor, id luctus est egestas.
-          Suspendisse potenti.
-        </p>
+        <div class="steps">
+          <article>
+            <span>01</span>
+            <strong>ELEGÍ</strong>
+            <small>Seleccioná los equipos.</small>
+          </article>
 
-        <p class="manifesto">
-          NO VENDEMOS. ASESORAMOS.<br>
-          LOREM IPSUM DOLOR SIT AMET.
-        </p>
+          <article>
+            <span>02</span>
+            <strong>CONSULTÁ</strong>
+            <small>Confirmamos disponibilidad.</small>
+          </article>
 
-        <div class="pink-banner">
-          MENOS DRAMA. MEJOR EQUIPO.<br>
-          MÁS HISTORIAS.
+          <article>
+            <span>03</span>
+            <strong>RESERVÁ</strong>
+            <small>Seña del 50%.</small>
+          </article>
+
+          <article>
+            <span>04</span>
+            <strong>RETIRÁ</strong>
+            <small>Saldo + contrato.</small>
+          </article>
         </div>
 
-        <img class="about-strap" src="assets/bongo-w.svg" alt="" aria-hidden="true">
-      </div>
+        <div class="pink-note">
+          PRODUCÍ TRANQUI.<br>
+          EL SONIDO LO RESOLVEMOS.
+        </div>
 
+        <img
+          class="how-bongo"
+          src="assets/bongo-w.svg"
+          alt=""
+          aria-hidden="true"
+        >
+      </div>
     </section>
 
-    <!-- ====================================================
-         PRODUCTOS
-         ==================================================== -->
-    <section class="products section" id="productos">
 
-      <div class="products-title reveal">
+    <!-- =====================================================
+         EQUIPOS
+         ===================================================== -->
+    <section class="equipment section" id="equipos">
+      <div class="equipment-heading reveal">
         <span class="pink-rays">≋</span>
 
         <div>
           <p class="section-number">02 / EQUIPOS</p>
-          <h2>PRODUCTOS</h2>
+          <h2>EQUIPOS</h2>
         </div>
 
         <span class="pink-rays">≋</span>
       </div>
 
-      <p class="products-description reveal">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Consultanos disponibilidad, fechas y condiciones.
+      <p class="equipment-intro reveal">
+        ¿Necesitás ayuda para elegir el equipo? Consultanos y te asesoramos.
       </p>
 
-      <div class="product-grid">
+      <div class="equipment-grid">
 
-        <article class="product-card reveal" tabindex="0">
+        <!-- 1 -->
+        <article class="equipment-card reveal">
           <span class="card-tape"></span>
-          <h3>CÁMARAS</h3>
-          <div class="pink-card-line"></div>
 
-          <div class="product-illustration">
-            <img src="assets/camera.svg" alt="Cámaras">
+          <div class="equipment-image">
+            <img src="assets/zoom-h6.svg" alt="Zoom H6 Essential">
           </div>
 
-          <h4>Lorem Camera Kit</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p class="equipment-type">GRABADORA</p>
+          <h3>ZOOM H6 ESSENTIAL</h3>
+
+          <p class="equipment-summary">
+            Grabadora portátil · 6 pistas · 32-bit float.
+          </p>
+
+          <div class="included">
+            <strong>INCLUYE</strong>
+            <ul>
+              <li>Grabadora Zoom H6essential</li>
+              <li>Cápsula de micrófono XY</li>
+              <li>4 pilas AA recargables</li>
+              <li>Cargador</li>
+            </ul>
+          </div>
 
           <button
-            class="product-button wa-trigger sheep-trigger"
+            class="consult-button whatsapp-trigger sheep-trigger"
             type="button"
-            data-product="Cámaras / Lorem Camera Kit"
-            data-message="Hola Ovejas Punk, quiero consultar por Cámaras / Lorem Camera Kit."
+            data-message="Hola Ovejas Punk, quiero consultar disponibilidad de la Zoom H6 Essential."
           >
             CONSULTAR
           </button>
         </article>
 
 
-        <article class="product-card reveal" tabindex="0">
+        <!-- 2 -->
+        <article class="equipment-card reveal">
           <span class="card-tape"></span>
-          <h3>AUDIO</h3>
-          <div class="pink-card-line"></div>
 
-          <div class="product-illustration">
-            <img src="assets/headphones.svg" alt="Audio">
+          <div class="equipment-image">
+            <img src="assets/shotgun.svg" alt="Sennheiser MKE 600">
           </div>
 
-          <h4>Lorem Audio Pack</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p class="equipment-type">SHOTGUN / CAÑÓN</p>
+          <h3>SENNHEISER MKE 600</h3>
+
+          <p class="equipment-summary">
+            Micrófono shotgun / cañón · Supercardioide · Para boom y cámara.
+          </p>
+
+          <div class="included">
+            <strong>INCLUYE</strong>
+            <ul>
+              <li>Micrófono Sennheiser MKE 600</li>
+              <li>Soporte para cámara</li>
+              <li>Paravientos de gomaespuma</li>
+            </ul>
+          </div>
 
           <button
-            class="product-button wa-trigger sheep-trigger"
+            class="consult-button whatsapp-trigger sheep-trigger"
             type="button"
-            data-product="Audio / Lorem Audio Pack"
-            data-message="Hola Ovejas Punk, quiero consultar por Audio / Lorem Audio Pack."
+            data-message="Hola Ovejas Punk, quiero consultar disponibilidad del Sennheiser MKE 600."
           >
             CONSULTAR
           </button>
         </article>
 
 
-        <article class="product-card reveal" tabindex="0">
+        <!-- 3 -->
+        <article class="equipment-card reveal">
           <span class="card-tape"></span>
-          <h3>GRIP</h3>
-          <div class="pink-card-line"></div>
 
-          <div class="product-illustration">
-            <img src="assets/grip.svg" alt="Grip">
+          <div class="equipment-image">
+            <img src="assets/wireless-dual.svg" alt="Sony ECM-W3">
           </div>
 
-          <h4>Lorem Grip Set</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p class="equipment-type">INALÁMBRICO</p>
+          <h3>SONY ECM-W3</h3>
+
+          <p class="equipment-summary">
+            Sistema de micrófono inalámbrico · 2 canales · Para cámara.
+          </p>
+
+          <div class="included">
+            <strong>INCLUYE</strong>
+            <ul>
+              <li>2 transmisores inalámbricos</li>
+              <li>1 receptor de doble canal</li>
+              <li>Estuche de carga</li>
+              <li>Cable de carga</li>
+            </ul>
+          </div>
 
           <button
-            class="product-button wa-trigger sheep-trigger"
+            class="consult-button whatsapp-trigger sheep-trigger"
             type="button"
-            data-product="Grip / Lorem Grip Set"
-            data-message="Hola Ovejas Punk, quiero consultar por Grip / Lorem Grip Set."
+            data-message="Hola Ovejas Punk, quiero consultar disponibilidad del Sony ECM-W3."
           >
             CONSULTAR
           </button>
         </article>
 
 
-        <article class="product-card reveal" tabindex="0">
+        <!-- 4 -->
+        <article class="equipment-card reveal">
           <span class="card-tape"></span>
-          <h3>MIXER</h3>
-          <div class="pink-card-line"></div>
 
-          <div class="product-illustration">
-            <img src="assets/mixer.svg" alt="Mixer">
+          <div class="equipment-image">
+            <img src="assets/wireless-lav.svg" alt="Sennheiser G4">
           </div>
 
-          <h4>Lorem Mixer</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p class="equipment-type">CORBATERO</p>
+          <h3>SENNHEISER G4</h3>
+
+          <p class="equipment-summary">
+            Sistema inalámbrico · Micrófono corbatero.
+          </p>
+
+          <div class="included">
+            <strong>INCLUYE</strong>
+            <ul>
+              <li>1 transmisor bodypack</li>
+              <li>1 receptor bodypack</li>
+              <li>1 micrófono corbatero</li>
+              <li>Estuche</li>
+            </ul>
+          </div>
 
           <button
-            class="product-button wa-trigger sheep-trigger"
+            class="consult-button whatsapp-trigger sheep-trigger"
             type="button"
-            data-product="Mixer / Lorem Mixer"
-            data-message="Hola Ovejas Punk, quiero consultar por Mixer / Lorem Mixer."
+            data-message="Hola Ovejas Punk, quiero consultar disponibilidad del Sennheiser G4."
           >
             CONSULTAR
           </button>
         </article>
 
 
-        <article class="product-card reveal accessories-card" tabindex="0">
+        <!-- 5 -->
+        <article class="equipment-card reveal compact-card">
           <span class="card-tape"></span>
-          <h3>ACCESORIOS</h3>
-          <div class="pink-card-line"></div>
 
-          <div class="product-illustration">
-            <img src="assets/bongo-b.svg" alt="Accesorios">
+          <div class="equipment-image">
+            <img src="assets/xlr.svg" alt="Cable XLR de 2 metros">
           </div>
 
-          <h4>Lorem Accessories</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p class="equipment-type">CABLE</p>
+          <h3>CABLE XLR — 2 M</h3>
+
+          <p class="equipment-summary">
+            Cable XLR para conexión de micrófonos y equipos de audio.
+          </p>
 
           <button
-            class="product-button pink-product-button wa-trigger sheep-trigger"
+            class="consult-button whatsapp-trigger sheep-trigger"
             type="button"
-            data-product="Accesorios / Lorem Accessories"
-            data-message="Hola Ovejas Punk, quiero consultar por Accesorios / Lorem Accessories."
+            data-message="Hola Ovejas Punk, quiero consultar por el Cable XLR de 2 metros."
+          >
+            CONSULTAR
+          </button>
+        </article>
+
+
+        <!-- 6 -->
+        <article class="equipment-card reveal compact-card">
+          <span class="card-tape"></span>
+
+          <div class="equipment-image">
+            <img src="assets/xlr.svg" alt="Cable XLR de 6 metros">
+          </div>
+
+          <p class="equipment-type">CABLE</p>
+          <h3>CABLE XLR — 6 M</h3>
+
+          <p class="equipment-summary">
+            Cable XLR para conexión de micrófonos y equipos de audio.
+          </p>
+
+          <button
+            class="consult-button whatsapp-trigger sheep-trigger"
+            type="button"
+            data-message="Hola Ovejas Punk, quiero consultar por el Cable XLR de 6 metros."
+          >
+            CONSULTAR
+          </button>
+        </article>
+
+
+        <!-- 7 -->
+        <article class="equipment-card reveal compact-card">
+          <span class="card-tape"></span>
+
+          <div class="equipment-image">
+            <img src="assets/belt.svg" alt="Faja de cadera">
+          </div>
+
+          <p class="equipment-type">SUJECIÓN BODY PACK</p>
+          <h3>FAJA DE CADERA</h3>
+
+          <p class="equipment-summary">
+            Faja ajustable para sujetar el transmisor inalámbrico de forma
+            segura y discreta durante el rodaje.
+          </p>
+
+          <p class="detail-line">
+            Color: beige · Talle: único
+          </p>
+
+          <button
+            class="consult-button whatsapp-trigger sheep-trigger"
+            type="button"
+            data-message="Hola Ovejas Punk, quiero consultar por la Faja de Cadera."
+          >
+            CONSULTAR
+          </button>
+        </article>
+
+
+        <!-- 8 -->
+        <article class="equipment-card reveal compact-card">
+          <span class="card-tape"></span>
+
+          <div class="equipment-image">
+            <img src="assets/thigh.svg" alt="Faja de muslo">
+          </div>
+
+          <p class="equipment-type">SUJECIÓN BODY PACK</p>
+          <h3>FAJA DE MUSLO</h3>
+
+          <p class="equipment-summary">
+            Faja ajustable para sujetar el transmisor inalámbrico de forma
+            segura y discreta durante el rodaje.
+          </p>
+
+          <p class="detail-line">
+            Color: beige · Talle: único
+          </p>
+
+          <button
+            class="consult-button whatsapp-trigger sheep-trigger"
+            type="button"
+            data-message="Hola Ovejas Punk, quiero consultar por la Faja de Muslo."
+          >
+            CONSULTAR
+          </button>
+        </article>
+
+
+        <!-- 9 -->
+        <article class="equipment-card reveal compact-card">
+          <span class="card-tape"></span>
+
+          <div class="equipment-image">
+            <img src="assets/ankle.svg" alt="Faja de tobillo">
+          </div>
+
+          <p class="equipment-type">SUJECIÓN BODY PACK</p>
+          <h3>FAJA DE TOBILLO</h3>
+
+          <p class="equipment-summary">
+            Faja ajustable para sujetar el transmisor inalámbrico de forma
+            segura y discreta durante el rodaje.
+          </p>
+
+          <p class="detail-line">
+            Color: beige · Talle: único
+          </p>
+
+          <button
+            class="consult-button whatsapp-trigger sheep-trigger"
+            type="button"
+            data-message="Hola Ovejas Punk, quiero consultar por la Faja de Tobillo."
+          >
+            CONSULTAR
+          </button>
+        </article>
+
+
+        <!-- 10 -->
+        <article class="equipment-card reveal compact-card bongo-card">
+          <span class="card-tape"></span>
+
+          <div class="equipment-image">
+            <img src="assets/bongo-pack.svg" alt="Bongo Ties">
+          </div>
+
+          <p class="equipment-type">ACCESORIOS</p>
+          <h3>BONGO TIES — 15 UNIDADES DE 10 CM</h3>
+
+          <p class="equipment-summary">
+            Sujeciones elásticas para fijar y asegurar cables durante el rodaje.
+          </p>
+
+          <p class="detail-line">
+            Venta — pack de 15 unidades.
+          </p>
+
+          <button
+            class="consult-button special-button whatsapp-trigger sheep-trigger"
+            type="button"
+            data-message="Hola Ovejas Punk, quiero consultar por el pack de Bongo Ties."
           >
             CONSULTAR
           </button>
 
-          <div class="mini-sheep-line" aria-hidden="true">
+          <div class="mini-sheep" aria-hidden="true">
             <img src="assets/cordero-mic-b.svg" alt="">
             <img src="assets/cordero-mic-b.svg" alt="">
             <img src="assets/cordero-mic-b.svg" alt="">
@@ -340,16 +576,16 @@
         </article>
 
       </div>
-
     </section>
 
-    <div class="torn-paper-divider" aria-hidden="true"></div>
 
-    <!-- ====================================================
+    <div class="torn-divider" aria-hidden="true"></div>
+
+
+    <!-- =====================================================
          CONTACTO
-         ==================================================== -->
+         ===================================================== -->
     <section class="contact section" id="contacto">
-
       <div class="contact-heading reveal">
         <img src="assets/bongo-w.svg" alt="" aria-hidden="true">
 
@@ -361,65 +597,59 @@
 
       <div class="contact-grid">
 
-        <div class="contact-card reveal">
+        <aside class="contact-card reveal">
           <p class="contact-intro">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Tocá cualquier opción y te lleva a la consulta.
+            ¿Tenés dudas sobre algún equipo, necesitás asesoramiento para elegir
+            qué alquilar o querés consultar disponibilidad? Escribinos por
+            WhatsApp o Instagram y te ayudamos a encontrar la mejor opción
+            para tu proyecto.
           </p>
 
-          <!--
-            POR PEDIDO: todos estos enlaces de contacto van a WhatsApp.
-            El número se configura UNA SOLA VEZ en script.js.
-          -->
-          <button
-            class="contact-row wa-trigger"
-            type="button"
-            data-message="Hola Ovejas Punk, quiero hacer una consulta por WhatsApp."
+          <div class="contact-links">
+            <button
+              class="contact-row whatsapp-trigger"
+              type="button"
+              data-message="Hola Ovejas Punk, quiero hacer una consulta."
+            >
+              <img src="assets/whatsapp.svg" alt="WhatsApp">
+              <span>
+                <small>WHATSAPP</small>
+                <strong id="whatsappLabel">+54 9 11 XXXX XXXX</strong>
+              </span>
+              <b>→</b>
+            </button>
+
+            <a
+              class="contact-row"
+              id="instagramLink"
+              href="#"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="assets/instagram.svg" alt="Instagram">
+              <span>
+                <small>INSTAGRAM</small>
+                <strong id="instagramLabel">@ovejaspunk</strong>
+              </span>
+              <b>→</b>
+            </a>
+          </div>
+
+          <img
+            class="ghost-logo"
+            src="assets/iso-w.svg"
+            alt=""
+            aria-hidden="true"
           >
-            <span class="contact-icon whatsapp-icon">W</span>
-            <span class="contact-copy">
-              <small>WHATSAPP</small>
-              <strong id="whatsappVisible">+54 9 11 XXXX XXXX</strong>
-            </span>
-            <b>→</b>
-          </button>
-
-          <button
-            class="contact-row wa-trigger"
-            type="button"
-            data-message="Hola Ovejas Punk, quiero consultar por sus redes y productos."
-          >
-            <span class="contact-icon instagram-icon">◎</span>
-            <span class="contact-copy">
-              <small>INSTAGRAM</small>
-              <strong>@ovejaspunk</strong>
-            </span>
-            <b>→</b>
-          </button>
-
-          <button
-            class="contact-row wa-trigger"
-            type="button"
-            data-message="Hola Ovejas Punk, quiero hacer una consulta."
-          >
-            <span class="contact-icon mail-icon">✉</span>
-            <span class="contact-copy">
-              <small>CONSULTAS</small>
-              <strong>Escribinos por WhatsApp</strong>
-            </span>
-            <b>→</b>
-          </button>
-
-          <img class="contact-ghost-logo" src="assets/iso-w.svg" alt="" aria-hidden="true">
-        </div>
+        </aside>
 
 
-        <div class="form-collage reveal">
+        <div class="form-frame reveal">
           <span class="form-tape form-tape-top"></span>
-          <span class="form-tape form-tape-right"></span>
+          <span class="form-tape form-tape-side"></span>
 
-          <div class="google-placeholder" id="googlePlaceholder">
-            <div class="forms-symbol">▦</div>
+          <div class="form-placeholder" id="formPlaceholder">
+            <div class="form-icon">▦</div>
             <h3>Formulario de Google</h3>
             <p>(Formulario incrustado)</p>
             <span>
@@ -447,13 +677,12 @@
 
       </div>
     </section>
-
   </main>
 
 
-  <!-- ======================================================
+  <!-- =====================================================
        FOOTER
-       ====================================================== -->
+       ===================================================== -->
   <footer class="site-footer">
     <img src="assets/iso-w.svg" alt="Ovejas Punk">
 
@@ -464,31 +693,30 @@
     <span>BUENOS AIRES, ARGENTINA</span>
 
     <button
-      class="footer-zap wa-trigger"
+      class="footer-whatsapp whatsapp-trigger"
       type="button"
       data-message="Hola Ovejas Punk, quiero hacer una consulta."
       aria-label="Consultar por WhatsApp"
     >
-      ϟ
+      <img src="assets/whatsapp.svg" alt="WhatsApp">
     </button>
   </footer>
 
 
-  <!-- FLOATING CONSULT -->
+  <!-- BOTON WPP FLOTANTE -->
   <button
-    class="floating-whatsapp wa-trigger"
+    class="floating-whatsapp whatsapp-trigger"
     type="button"
     data-message="Hola Ovejas Punk, quiero hacer una consulta."
     aria-label="Consultar por WhatsApp"
   >
+    <img src="assets/whatsapp.svg" alt="">
     <span>CONSULTAR</span>
-    <b>W</b>
   </button>
 
 
-  <!-- SHEEP CLICK ANIMATION -->
+  <!-- ANIMACION OVEJAS -->
   <div id="sheepLayer" class="sheep-layer" aria-hidden="true"></div>
-
 
   <script src="script.js"></script>
 </body>
