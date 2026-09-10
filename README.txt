@@ -131,3 +131,10 @@ CAMBIOS DE ESTA ENTREGA
 - Equipos reemplaza Productos (tarjetas conservadas).
 - Contacto actualizado con logos WhatsApp e Instagram.
 - Instagram se configura en SITE_CONFIG de script.js.
+
+
+ACTUALIZACIÓN EQUIPOS REALES
+- Se reemplazaron las tarjetas Lorem por 10 equipos reales.
+- Las fotos de producto tienen tratamiento visual Ovejas Punk y están optimizadas en WebP.
+- Se incorporó una foto real de backstage en Cómo alquilar.
+- El archivo assets/whatsapp.svg fue reemplazado por el logo entregado por la usuaria.

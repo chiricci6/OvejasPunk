@@ -1662,3 +1662,230 @@ img {
     height: 38px;
   }
 }
+
+
+/* =========================================================
+   EQUIPOS REALES + FOTOS CON ONDA — agregado sin rediseñar
+   ========================================================= */
+
+.product-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px 22px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  padding: 29px 24px 24px;
+}
+
+.product-card h3 {
+  min-height: 30px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  font-size: 1.22rem;
+}
+
+.product-card h4 {
+  margin-top: 6px;
+  font-size: clamp(1.35rem, 1.8vw, 1.85rem);
+  line-height: 1;
+}
+
+.product-photo {
+  position: relative;
+  height: 255px;
+  margin: 20px -4px 22px;
+  overflow: hidden;
+  border: 2px solid var(--black);
+  background: #09100f;
+  box-shadow: 7px 8px 0 rgba(14,25,27,.19);
+  clip-path: polygon(1% 4%, 97% 0, 100% 92%, 93% 100%, 3% 97%, 0 12%);
+  transform: rotate(-.6deg);
+  isolation: isolate;
+}
+
+.product-card:nth-child(even) .product-photo {
+  transform: rotate(.7deg);
+}
+
+.product-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(229,7,129,.05), transparent 31%),
+    radial-gradient(circle at 17% 12%, rgba(255,255,255,.13) 0 .6px, transparent .9px);
+  background-size: auto, 5px 5px;
+  mix-blend-mode: screen;
+}
+
+.product-photo::after {
+  content: attr(data-index);
+  position: absolute;
+  z-index: 4;
+  right: 10px;
+  bottom: 9px;
+  min-width: 40px;
+  padding: 6px 8px 5px;
+  color: var(--black);
+  background: var(--yellow);
+  border: 2px solid var(--black);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: .88rem;
+  text-align: center;
+  transform: rotate(-3deg);
+}
+
+.product-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .35s ease, filter .35s ease;
+  filter: saturate(.9) contrast(1.07) brightness(.95);
+}
+
+.product-card:hover .product-photo img,
+.product-card:focus-visible .product-photo img {
+  transform: scale(1.055) rotate(.5deg);
+  filter: saturate(1.03) contrast(1.08) brightness(1.02);
+}
+
+.product-card:hover .product-photo,
+.product-card:focus-visible .product-photo {
+  box-shadow: 9px 10px 0 rgba(229,7,129,.23);
+}
+
+.product-summary {
+  min-height: 0 !important;
+  margin: 0 !important;
+  font-size: .82rem !important;
+  line-height: 1.55 !important;
+}
+
+.product-includes {
+  margin-top: 17px;
+  padding-top: 13px;
+  border-top: 2px dashed rgba(14,25,27,.28);
+  font-size: .78rem;
+  line-height: 1.45;
+}
+
+.product-includes strong {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  letter-spacing: .06em;
+}
+
+.product-includes ul {
+  margin: 8px 0 0;
+  padding-left: 19px;
+}
+
+.product-includes li + li {
+  margin-top: 4px;
+}
+
+.product-meta {
+  min-height: 0 !important;
+  margin: 15px 0 0 !important;
+  padding-top: 12px;
+  border-top: 2px dashed rgba(14,25,27,.28);
+  font-size: .78rem !important;
+  line-height: 1.45 !important;
+  font-weight: 900 !important;
+}
+
+.product-button {
+  margin-top: auto;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.product-includes + .product-button,
+.product-meta + .product-button,
+.product-summary + .product-button {
+  margin-top: 20px;
+}
+
+/* Pequeña foto real de backstage: suma clima sin quitar el collage de ovejas */
+.backstage-strip {
+  width: min(100%, 570px);
+  display: grid;
+  grid-template-columns: 165px 1fr;
+  gap: 18px;
+  align-items: center;
+  margin: 28px 0 12px;
+  color: var(--yellow);
+  font-weight: 900;
+  letter-spacing: .07em;
+  transform: rotate(-1deg);
+}
+
+.backstage-photo-wrap {
+  position: relative;
+  height: 112px;
+  overflow: hidden;
+  border: 2px solid var(--paper);
+  box-shadow: 6px 6px 0 rgba(229,7,129,.55);
+  clip-path: polygon(2% 4%, 98% 0, 100% 93%, 92% 100%, 0 96%);
+}
+
+.backstage-photo-wrap::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -9px;
+  width: 64px;
+  height: 20px;
+  background: rgba(229,225,211,.75);
+  transform: translateX(-50%) rotate(3deg);
+}
+
+.backstage-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  filter: contrast(1.08) saturate(.85);
+  transition: transform .3s ease;
+}
+
+.backstage-strip:hover .backstage-photo-wrap img {
+  transform: scale(1.07);
+}
+
+/* Exact WhatsApp asset supplied by the user */
+.nav-whatsapp img,
+.contact-social-logo,
+.floating-whatsapp img {
+  object-fit: contain;
+}
+
+@media (max-width: 950px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-photo {
+    height: 270px;
+  }
+
+  .backstage-strip {
+    grid-template-columns: 125px 1fr;
+    gap: 14px;
+    font-size: .77rem;
+  }
+
+  .backstage-photo-wrap {
+    height: 95px;
+  }
+}
