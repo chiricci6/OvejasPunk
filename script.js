@@ -274,26 +274,29 @@ function launchSheepParade(button) {
   }
 
   const rect = button.getBoundingClientRect();
+  const startX = rect.left + rect.width * .58;
+  const startY = rect.top + rect.height * .18;
 
-  const startX = rect.left + rect.width * .55;
-  const startY = rect.top + rect.height * .25;
-
-  // They are deliberately staggered and slow enough to be noticed.
-  const count = 6;
+  // Menos ovejas, un poco más grandes y escalonadas:
+  // se distinguen mejor y no parece una mancha al salir del botón.
+  const count = window.matchMedia("(max-width: 640px)").matches ? 4 : 5;
 
   for (let index = 0; index < count; index++) {
     const sheep = document.createElement("img");
 
-    sheep.src = "assets/cordero-mic-w.svg";
+    // La versión negra se lee perfecto dentro del recorte de papel crema.
+    sheep.src = "assets/cordero-mic-b.svg";
     sheep.alt = "";
     sheep.className = "walking-sheep";
 
-    const size = 58 + Math.random() * 30;
-    const x = startX - 15 + Math.random() * 22;
-    const y = startY - 22 + (Math.random() - .5) * 32;
+    const size = window.matchMedia("(max-width: 640px)").matches
+      ? 54 + Math.random() * 8
+      : 62 + Math.random() * 10;
 
-    const duration = 3900 + Math.random() * 900;
-    const delay = index * 235 + Math.random() * 65;
+    const x = startX - 12 + Math.random() * 16;
+    const y = startY - 24 + (Math.random() - .5) * 20;
+    const duration = 3450 + Math.random() * 350;
+    const delay = index * 210;
 
     sheep.style.setProperty("--sheep-size", `${size}px`);
     sheep.style.setProperty("--start-x", `${x}px`);
@@ -329,7 +332,7 @@ function setupWhatsappTriggers() {
         // We deliberately wait so the sheep animation is visible.
         window.setTimeout(() => {
           openWhatsapp(message);
-        }, 3100);
+        }, 4050);
 
         return;
       }
