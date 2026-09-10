@@ -263,57 +263,6 @@ function setupInteractiveSheep() {
 
 
 /* =========================================================
-   SLOW SHEEP PARADE
-   ========================================================= */
-
-function launchSheepParade(button) {
-  const layer = document.getElementById("sheepLayer");
-
-  if (!layer || !button) {
-    return;
-  }
-
-  const rect = button.getBoundingClientRect();
-  const startX = rect.left + rect.width * .58;
-  const startY = rect.top + rect.height * .18;
-
-  // Menos ovejas, un poco más grandes y escalonadas:
-  // se distinguen mejor y no parece una mancha al salir del botón.
-  const count = window.matchMedia("(max-width: 640px)").matches ? 4 : 5;
-
-  for (let index = 0; index < count; index++) {
-    const sheep = document.createElement("img");
-
-    // La versión negra se lee perfecto dentro del recorte de papel crema.
-    sheep.src = "assets/cordero-mic-b.svg";
-    sheep.alt = "";
-    sheep.className = "walking-sheep";
-
-    const size = window.matchMedia("(max-width: 640px)").matches
-      ? 54 + Math.random() * 8
-      : 62 + Math.random() * 10;
-
-    const x = startX - 12 + Math.random() * 16;
-    const y = startY - 24 + (Math.random() - .5) * 20;
-    const duration = 3450 + Math.random() * 350;
-    const delay = index * 210;
-
-    sheep.style.setProperty("--sheep-size", `${size}px`);
-    sheep.style.setProperty("--start-x", `${x}px`);
-    sheep.style.setProperty("--start-y", `${y}px`);
-    sheep.style.setProperty("--duration", `${duration}ms`);
-    sheep.style.setProperty("--delay", `${delay}ms`);
-
-    sheep.addEventListener("animationend", () => {
-      sheep.remove();
-    });
-
-    layer.appendChild(sheep);
-  }
-}
-
-
-/* =========================================================
    WHATSAPP BUTTONS
    ========================================================= */
 
@@ -325,17 +274,6 @@ function setupWhatsappTriggers() {
       const message =
         trigger.dataset.message ||
         "Hola Ovejas Punk, quiero hacer una consulta.";
-
-      if (trigger.classList.contains("sheep-trigger")) {
-        launchSheepParade(trigger);
-
-        // We deliberately wait so the sheep animation is visible.
-        window.setTimeout(() => {
-          openWhatsapp(message);
-        }, 4050);
-
-        return;
-      }
 
       openWhatsapp(message);
     });
