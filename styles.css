@@ -1207,89 +1207,6 @@ img {
 }
 
 /* =========================================================
-   SHEEP CLICK ANIMATION — SLOW / VISIBLE
-   ========================================================= */
-
-.sheep-layer {
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.walking-sheep {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: var(--sheep-size);
-  height: var(--sheep-size);
-  object-fit: contain;
-  opacity: 0;
-  will-change: transform, opacity;
-  filter:
-    drop-shadow(3px 5px 0 rgba(0,0,0,.35))
-    drop-shadow(0 0 1px rgba(255,255,255,.65));
-  animation: sheepWalk var(--duration) cubic-bezier(.18,.72,.22,1) forwards;
-  animation-delay: var(--delay);
-}
-
-@keyframes sheepWalk {
-  0% {
-    opacity: 0;
-    transform: translate(var(--start-x), var(--start-y))
-               rotate(-4deg) scale(.72);
-  }
-
-  6% {
-    opacity: 1;
-  }
-
-  18% {
-    transform: translate(
-      calc(var(--start-x) + 12vw),
-      calc(var(--start-y) - 17px)
-    ) rotate(3deg) scale(.82);
-  }
-
-  34% {
-    transform: translate(
-      calc(var(--start-x) + 28vw),
-      calc(var(--start-y) + 4px)
-    ) rotate(-2deg) scale(.9);
-  }
-
-  50% {
-    transform: translate(
-      calc(var(--start-x) + 44vw),
-      calc(var(--start-y) - 24px)
-    ) rotate(3deg) scale(1);
-  }
-
-  67% {
-    transform: translate(
-      calc(var(--start-x) + 61vw),
-      calc(var(--start-y) + 3px)
-    ) rotate(-2deg) scale(.96);
-  }
-
-  84% {
-    transform: translate(
-      calc(var(--start-x) + 78vw),
-      calc(var(--start-y) - 15px)
-    ) rotate(2deg) scale(.9);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translate(
-      calc(var(--start-x) + 99vw),
-      calc(var(--start-y) + 6px)
-    ) rotate(-2deg) scale(.84);
-  }
-}
-
-/* =========================================================
    SCROLL REVEAL
    ========================================================= */
 
@@ -1524,11 +1441,6 @@ img {
     opacity: 1;
     transform: none;
     transition: none;
-  }
-
-  .walking-sheep {
-    animation-duration: 600ms !important;
-    animation-delay: 0ms !important;
   }
 }
 

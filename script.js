@@ -11,10 +11,14 @@ const SITE_CONFIG = {
     Ejemplo Argentina:
     5491122334455
   */
-  whatsappNumber: "54911XXXXXXXX",
+  whatsappNumber: "5491160489669",
 
   // Es únicamente el texto visible en la web.
-  whatsappLabel: "+54 9 11 XXXX XXXX",
+  whatsappLabel: "+54 9 11 6048-9669",
+
+  // Mensaje usado por los accesos generales de WhatsApp.
+  generalWhatsappMessage:
+    "Hola, tengo una consulta sobre el alquiler de equipos de Ovejas Punk. ¿Me pueden ayudar?",
 
   // Instagram: cambiar link y texto acá.
   instagramUrl: "https://www.instagram.com/ovejaspunk/",
@@ -263,54 +267,6 @@ function setupInteractiveSheep() {
 
 
 /* =========================================================
-   SLOW SHEEP PARADE
-   ========================================================= */
-
-function launchSheepParade(button) {
-  const layer = document.getElementById("sheepLayer");
-
-  if (!layer || !button) {
-    return;
-  }
-
-  const rect = button.getBoundingClientRect();
-
-  const startX = rect.left + rect.width * .55;
-  const startY = rect.top + rect.height * .25;
-
-  // They are deliberately staggered and slow enough to be noticed.
-  const count = 6;
-
-  for (let index = 0; index < count; index++) {
-    const sheep = document.createElement("img");
-
-    sheep.src = "assets/cordero-mic-w.svg";
-    sheep.alt = "";
-    sheep.className = "walking-sheep";
-
-    const size = 58 + Math.random() * 30;
-    const x = startX - 15 + Math.random() * 22;
-    const y = startY - 22 + (Math.random() - .5) * 32;
-
-    const duration = 3900 + Math.random() * 900;
-    const delay = index * 235 + Math.random() * 65;
-
-    sheep.style.setProperty("--sheep-size", `${size}px`);
-    sheep.style.setProperty("--start-x", `${x}px`);
-    sheep.style.setProperty("--start-y", `${y}px`);
-    sheep.style.setProperty("--duration", `${duration}ms`);
-    sheep.style.setProperty("--delay", `${delay}ms`);
-
-    sheep.addEventListener("animationend", () => {
-      sheep.remove();
-    });
-
-    layer.appendChild(sheep);
-  }
-}
-
-
-/* =========================================================
    WHATSAPP BUTTONS
    ========================================================= */
 
@@ -319,20 +275,11 @@ function setupWhatsappTriggers() {
 
   triggers.forEach((trigger) => {
     trigger.addEventListener("click", () => {
-      const message =
-        trigger.dataset.message ||
-        "Hola Ovejas Punk, quiero hacer una consulta.";
+      const product = String(trigger.dataset.product || "").trim();
 
-      if (trigger.classList.contains("sheep-trigger")) {
-        launchSheepParade(trigger);
-
-        // We deliberately wait so the sheep animation is visible.
-        window.setTimeout(() => {
-          openWhatsapp(message);
-        }, 3100);
-
-        return;
-      }
+      const message = product
+        ? `Hola, quisiera consultar por ${product}. ¿Me pueden confirmar disponibilidad y condiciones de alquiler?`
+        : SITE_CONFIG.generalWhatsappMessage;
 
       openWhatsapp(message);
     });
