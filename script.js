@@ -263,54 +263,6 @@ function setupInteractiveSheep() {
 
 
 /* =========================================================
-   SLOW SHEEP PARADE
-   ========================================================= */
-
-function launchSheepParade(button) {
-  const layer = document.getElementById("sheepLayer");
-
-  if (!layer || !button) {
-    return;
-  }
-
-  const rect = button.getBoundingClientRect();
-
-  const startX = rect.left + rect.width * .55;
-  const startY = rect.top + rect.height * .25;
-
-  // They are deliberately staggered and slow enough to be noticed.
-  const count = 6;
-
-  for (let index = 0; index < count; index++) {
-    const sheep = document.createElement("img");
-
-    sheep.src = "assets/cordero-mic-w.svg";
-    sheep.alt = "";
-    sheep.className = "walking-sheep";
-
-    const size = 58 + Math.random() * 30;
-    const x = startX - 15 + Math.random() * 22;
-    const y = startY - 22 + (Math.random() - .5) * 32;
-
-    const duration = 3900 + Math.random() * 900;
-    const delay = index * 235 + Math.random() * 65;
-
-    sheep.style.setProperty("--sheep-size", `${size}px`);
-    sheep.style.setProperty("--start-x", `${x}px`);
-    sheep.style.setProperty("--start-y", `${y}px`);
-    sheep.style.setProperty("--duration", `${duration}ms`);
-    sheep.style.setProperty("--delay", `${delay}ms`);
-
-    sheep.addEventListener("animationend", () => {
-      sheep.remove();
-    });
-
-    layer.appendChild(sheep);
-  }
-}
-
-
-/* =========================================================
    WHATSAPP BUTTONS
    ========================================================= */
 
@@ -322,17 +274,6 @@ function setupWhatsappTriggers() {
       const message =
         trigger.dataset.message ||
         "Hola Ovejas Punk, quiero hacer una consulta.";
-
-      if (trigger.classList.contains("sheep-trigger")) {
-        launchSheepParade(trigger);
-
-        // We deliberately wait so the sheep animation is visible.
-        window.setTimeout(() => {
-          openWhatsapp(message);
-        }, 3100);
-
-        return;
-      }
 
       openWhatsapp(message);
     });
