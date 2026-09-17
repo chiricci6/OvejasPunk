@@ -1577,11 +1577,11 @@ img {
 
 
 /* =========================================================
-   EQUIPOS REALES + FOTOS CON ONDA — agregado sin rediseñar
+   PRODUCTOS REALES + FOTOS CON ONDA — agregado sin rediseñar
    ========================================================= */
 
 .product-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 26px 22px;
 }
 
@@ -1774,6 +1774,13 @@ img {
 .contact-social-logo,
 .floating-whatsapp img {
   object-fit: contain;
+}
+
+
+@media (max-width: 1180px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 950px) {

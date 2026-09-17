@@ -1,140 +1,43 @@
-OVEJAS PUNK — WEB FINAL
+OVEJAS PUNK — VERSIÓN VENTA DE ACCESORIOS
 
-Esta versión recrea la estética del diseño aprobado:
-- Fondo negro / carbón.
-- Crema.
-- Rosa fuerte.
-- Amarillo ácido.
-- Collage, cintas, papeles, ilustraciones y textura.
-- OVEJA BLANCA como identidad principal en header y hero.
+Esta versión ya NO ofrece alquiler de equipos.
 
-ARCHIVOS
-- index.html
-- styles.css
-- script.js
-- assets/
+PRODUCTOS PUBLICADOS
+- Faja de cadera
+- Faja de muslo
+- Faja de tobillo
+- Bongo Ties — pack de 15 unidades de 10 cm
 
-============================================================
-1. CONFIGURAR WHATSAPP
-============================================================
+SE ELIMINÓ
+- Cómo alquilar
+- Señas, retiros y condiciones de alquiler
+- Zoom H6 Essential
+- Sennheiser MKE 600
+- Sony ECM-W3
+- Sennheiser G4
+- Cables XLR
+- Mensajes de WhatsApp relacionados con alquiler
 
-Abrí script.js.
+WHATSAPP
+Número configurado:
++54 9 11 6048-9669
 
-Arriba de todo:
+Al consultar desde un producto:
+Hola, quisiera consultar por [PRODUCTO]. ¿Me pueden confirmar disponibilidad y precio?
 
-const SITE_CONFIG = {
-    whatsappNumber: "54911XXXXXXXX",
-    whatsappLabel: "+54 9 11 XXXX XXXX",
-    googleFormsUrl: "REEMPLAZAR_CON_URL_EMBED_DE_GOOGLE_FORMS"
-};
+En consultas generales:
+Hola, tengo una consulta sobre los productos de Ovejas Punk. ¿Me pueden ayudar?
 
-Cuando tengas el número real, por ejemplo:
+INSTAGRAM
+Se conserva la configuración actual.
 
-whatsappNumber: "5491122334455"
+GOOGLE FORMS
+Se conserva el espacio y la configuración existente.
 
-IMPORTANTE:
-- sin +
-- sin espacios
-- sin guiones
-
-whatsappLabel es solamente el texto que se muestra.
-
-Todos los botones de consulta/contacto están centralizados en
-esa única configuración.
-
-Los links de NOSOTROS / PRODUCTOS / CONTACTO del menú son
-navegación interna de la misma página.
-
-============================================================
-2. GOOGLE FORMS
-============================================================
-
-En Google Forms:
-1. Abrí tu formulario.
-2. Elegí "Enviar".
-3. Elegí el icono "<>".
-4. Google mostrará un iframe.
-5. Copiá solamente el contenido de src="...".
-
-Ejemplo:
-
-https://docs.google.com/forms/d/e/XXXXXXXX/viewform?embedded=true
-
-Pegalo en script.js:
-
-googleFormsUrl:
-"https://docs.google.com/forms/d/e/XXXXXXXX/viewform?embedded=true"
-
-No hace falta modificar index.html.
-
-============================================================
-3. INTERACCIONES
-============================================================
-
-La oveja blanca grande del inicio:
-- gira lentamente sola;
-- acelera al pasar el mouse;
-- mover rápido el mouse le da impulso;
-- se puede tocar;
-- se puede arrastrar;
-- Enter o espacio también le da impulso.
-
-Tarjetas:
-- reaccionan al hover;
-- reaccionan al toque;
-- las imágenes se mueven suavemente.
-
-Botones CONSULTAR:
-- generan una estampida lenta de ovejas;
-- esperan para que la animación se vea;
-- luego abren WhatsApp.
-
-============================================================
-4. PRODUCTOS
-============================================================
-
-Los productos se editan en index.html.
-
-Cada tarjeta es:
-
-<article class="product-card">
-
-El mensaje de WhatsApp está en:
-
-data-message="..."
-
-Ejemplo:
-
-data-message="Hola Ovejas Punk, quiero consultar por Cámaras."
-
-============================================================
-5. RESPONSIVE
-============================================================
-
-Incluye:
-- escritorio;
-- tablet;
-- celular;
-- menú móvil;
-- tarjetas que pasan de 5 a 3, 2 y 1 columnas;
-- hero reacomodado;
-- Google Forms responsive.
-
-
-CAMBIOS DE ESTA ENTREGA
-- Se mantuvo la web original como base.
-- Header: logo más grande y WhatsApp real.
-- Hero: wordmark exacto del logo, descripción final y cartel amarillo actualizado.
-- Oveja de Consultar más grande.
-- Ticker actualizado.
-- Cómo alquilar reemplaza Sobre nosotros.
-- Equipos reemplaza Productos (tarjetas conservadas).
-- Contacto actualizado con logos WhatsApp e Instagram.
-- Instagram se configura en SITE_CONFIG de script.js.
-
-
-ACTUALIZACIÓN EQUIPOS REALES
-- Se reemplazaron las tarjetas Lorem por 10 equipos reales.
-- Las fotos de producto tienen tratamiento visual Ovejas Punk y están optimizadas en WebP.
-- Se incorporó una foto real de backstage en Cómo alquilar.
-- El archivo assets/whatsapp.svg fue reemplazado por el logo entregado por la usuaria.
+DISEÑO
+Se mantiene la estética original Ovejas Punk:
+- oveja blanca giratoria e interactiva
+- collage punk
+- banner rosa animado
+- tarjetas con fotos reales
+- responsive para escritorio, tablet y celular

@@ -18,7 +18,7 @@ const SITE_CONFIG = {
 
   // Mensaje usado por los accesos generales de WhatsApp.
   generalWhatsappMessage:
-    "Hola, tengo una consulta sobre el alquiler de equipos de Ovejas Punk. ¿Me pueden ayudar?",
+    "Hola, tengo una consulta sobre los productos de Ovejas Punk. ¿Me pueden ayudar?",
 
   // Instagram: cambiar link y texto acá.
   instagramUrl: "https://www.instagram.com/ovejaspunk/",
@@ -278,7 +278,7 @@ function setupWhatsappTriggers() {
       const product = String(trigger.dataset.product || "").trim();
 
       const message = product
-        ? `Hola, quisiera consultar por ${product}. ¿Me pueden confirmar disponibilidad y condiciones de alquiler?`
+        ? `Hola, quisiera consultar por ${product}. ¿Me pueden confirmar disponibilidad y precio?`
         : SITE_CONFIG.generalWhatsappMessage;
 
       openWhatsapp(message);
